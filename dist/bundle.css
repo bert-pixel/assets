@@ -233,6 +233,7 @@ body {
 }
 
 .elementor-element.bubble {
+  border-radius: var(--br-md);
   padding: var(--s-lg);
   padding-right: 7rem;
   --path: url("../images/blauw-element-flipvh.svg");
@@ -241,6 +242,10 @@ body {
   mask-repeat: no-repeat;
   mask-size: cover;
   mask-position: top left;
+}
+.elementor-element.bubble--flipv {
+  --path: url("../images/blauw-element-fliph.svg");
+  mask-position: bottom right;
 }
 
 #breadcrumbs {
@@ -322,16 +327,16 @@ body {
 }
 
 /* Card with Footer */
-.elementor-element.e-con.card {
+.elementor-element.card {
   --card-min-height: unset;
   --c-text: var(--c-aubergine);
   --c-background: var(--c-licht-blauw-1);
 }
-.elementor-element.e-con.card:hover {
+.elementor-element.card:hover {
   --c-text: var(--c-wit);
   --c-background: var(--c-aubergine);
 }
-.elementor-element.e-con.card {
+.elementor-element.card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -341,123 +346,132 @@ body {
   background: var(--c-background);
   position: relative;
 }
-.elementor-element.e-con.card .elementor-heading-title,
-.elementor-element.e-con.card .elementor-widget-text-editor {
+.elementor-element.card .elementor-heading-title,
+.elementor-element.card .elementor-widget-text-editor {
   color: var(--c-text);
 }
-.elementor-element.e-con.card footer {
+.elementor-element.card footer {
   gap: 0;
 }
-.elementor-element.e-con.card footer .elementor-button:not(.button-icon) {
+.elementor-element.card footer .elementor-button:not(.button-icon) {
   width: 100%;
 }
-.elementor-element.e-con.card footer .elementor-button:not(.button-icon):before {
+.elementor-element.card footer .elementor-button:not(.button-icon):before {
   content: "";
   position: absolute;
   inset: 0;
 }
-.elementor-element.e-con.card footer .elementor-button:not(.button-icon):hover {
+.elementor-element.card footer .elementor-button:not(.button-icon):hover {
   background: var(--c-wit);
   color: var(--c-aubergine);
   border-radius: 99rem;
 }
-.elementor-element.e-con.card:has(.elementor-button):hover {
+.elementor-element.card:has(.elementor-button):hover {
   --text-background: var(--c-blauw);
   --text-color: var(--c-wit);
 }
-.elementor-element.e-con.card.card--tall {
+.elementor-element.card.card--tall {
   --card-min-height: 28rem;
 }
-.elementor-element.e-con.card.card--square {
+.elementor-element.card.card--square {
   --card-min-height: unset;
   aspect-ratio: 1;
 }
-.elementor-element.e-con.card.card--blue {
+.elementor-element.card.card--blue {
   --c-background: var(--c-blauw);
   --c-text: var(--c-wit);
 }
 
 /* Card with image */
-.elementor-element.e-con.card--image {
+.elementor-element.card--image {
   background: var(--c-aubergine);
-  flex-direction: row;
+  flex-direction: row !important;
   border-radius: var(--br-md);
   overflow: hidden;
-  min-height: 19rem;
+  min-height: 20rem;
   gap: 0;
 }
-.elementor-element.e-con.card--image .card__content {
+.elementor-element.card--image .card__content {
   color: var(--c-white);
   padding: var(--s-lg);
   padding-right: 0;
   flex: 2;
 }
-.elementor-element.e-con.card--image .image {
+.elementor-element.card--image .image {
   flex: 3;
 }
-.elementor-element.e-con.card--image .image img {
+.elementor-element.card--image .image img {
   width: 100%;
   object-fit: cover;
   object-position: center;
 }
-.elementor-element.e-con.card--image.card--white {
+.elementor-element.card--image.card--white {
   background: var(--c-wit);
 }
-.elementor-element.e-con.card--image.card--white .elementor-heading-title,
-.elementor-element.e-con.card--image.card--white .card__content {
+.elementor-element.card--image.card--white .elementor-heading-title,
+.elementor-element.card--image.card--white .card__content {
   color: var(--c-aubergine);
 }
-.elementor-element.e-con.card--image.card--white .tag .elementor-heading-title {
+.elementor-element.card--image.card--white .tag .elementor-heading-title {
   color: var(--c-blauw);
 }
-.elementor-element.e-con.card--image.card--vertical {
+.elementor-element.card--image.card--vertical {
   flex-direction: column;
 }
-.elementor-element.e-con.card--image.card--vertical .card__content {
+.elementor-element.card--image.card--vertical .card__content {
   padding: var(--s-2md); /* 24px */
 }
-.elementor-element.e-con.card--image.card--vertical .image,
-.elementor-element.e-con.card--image.card--vertical .image img {
+.elementor-element.card--image.card--vertical .image,
+.elementor-element.card--image.card--vertical .image img {
   width: 100%;
 }
-.elementor-element.e-con.card--image.card--vertical .image.masked {
+.elementor-element.card--image.card--vertical .image.masked {
   margin-top: -4rem;
   --path: url("../images/blauw-element-mob-fliph.svg");
 }
-.elementor-element.e-con.card--image .image img {
+.elementor-element.card--image .image img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
-.elementor-element.e-con.card--image {
+.elementor-element.card--image {
   /* Only placement, don't style */
 }
-.elementor-element.e-con.card--image .button-icon {
+.elementor-element.card--image .button-icon {
   position: absolute;
   bottom: 0;
   right: 0;
-  margin: var(--s-lg);
+  margin: var(--s-lg) !important;
 }
-.elementor-element.e-con.card--image {
+.elementor-element.card--image {
   /* Vertical card */
 }
 @media (max-width: 767px) {
-  .elementor-element.e-con.card--image {
-    flex-direction: column;
+  .elementor-element.card--image {
+    flex-direction: column !important;
   }
-  .elementor-element.e-con.card--image .card__content {
+  .elementor-element.card--image .card__content {
     padding: var(--s-2md); /* 24px */
   }
-  .elementor-element.e-con.card--image .image {
+  .elementor-element.card--image .image {
     margin-top: -4rem;
   }
-  .elementor-element.e-con.card--image .image,
-  .elementor-element.e-con.card--image .image img {
+  .elementor-element.card--image .image,
+  .elementor-element.card--image .image img {
     width: 100%;
   }
-  .elementor-element.e-con.card--image .image.masked {
+  .elementor-element.card--image .image.masked {
     --path: url("../images/blauw-element-mob-fliph.svg");
   }
+}
+
+.elementor-element.card--simple {
+  padding: var(--s-lg);
+  border-radius: var(--br-md);
+}
+
+.elementor-element.card--square {
+  aspect-ratio: 1/1;
 }
 
 .elementor-element.chart .chart__heading {
@@ -706,6 +720,47 @@ body {
     font-size: var(--fs-title-m);
     line-height: var(--lh-title-m);
   }
+}
+
+.elementor-element.newsletter__form .gform_validation_errors {
+  display: none;
+}
+.elementor-element.newsletter__form .validation_message {
+  background: var(--c-negatief-1);
+  border-radius: 2rem;
+  padding: var(--s-2sm) var(--s-2md);
+  color: var(--c-aubergine);
+}
+.elementor-element.newsletter__form .gform_fields {
+  display: flex;
+  flex-direction: row;
+  gap: var(--s-sm);
+}
+.elementor-element.newsletter__form .gform_fields .gfield {
+  flex: 1;
+  align-items: flex-start !important;
+}
+.elementor-element.newsletter__form .gform_fields .gfield input,
+.elementor-element.newsletter__form .gform_fields .gfield .gform-button.button {
+  width: 100%;
+  border-radius: 3rem;
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--c-wit);
+  border: none;
+  height: 54px;
+  padding: var(--s-2sm) var(--s-2md);
+}
+.elementor-element.newsletter__form .gform_fields .gfield .gform-button.button {
+  background: var(--c-blauw);
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .elementor-element.newsletter__form .gform_fields {
+    flex-direction: column;
+  }
+}
+.elementor-element.newsletter__form .gform-footer {
+  display: none;
 }
 
 /* Hero */
@@ -1066,10 +1121,17 @@ body:has(.hero--photo) {
 .elementor-element.panel {
   border-radius: var(--br-lg);
   padding: var(--s-2xl);
+  gap: var(--s-xl);
 }
 @media (max-width: 767px) {
   .elementor-element.panel {
     padding: var(--s-lg);
+    gap: var(--s-md);
+  }
+}
+@media (max-width: 767px) {
+  .elementor-element.panel__header {
+    flex-direction: column;
   }
 }
 

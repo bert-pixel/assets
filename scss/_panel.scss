@@ -3,8 +3,16 @@
 .elementor-element.panel {
   border-radius: var(--br-lg);
   padding: var(--s-2xl);
+  gap: var(--s-xl);
 
   @include bp.mobile {
     padding: var(--s-lg);
+    gap: var(--s-md);
+  }
+
+  &__header {
+    @include bp.mobile {
+      flex-direction: column;
+    }
   }
 }

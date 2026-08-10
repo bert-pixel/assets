@@ -1,0 +1,50 @@
+@use "breakpoints" as bp;
+
+// FORMS
+.elementor-element.newsletter {
+  &__form {
+    .gform_validation_errors {
+      display: none;
+    }
+
+    .validation_message {
+      background: var(--c-negatief-1);
+      border-radius: 2rem;
+      padding: var(--s-2sm) var(--s-2md);
+      color: var(--c-aubergine);
+    }
+
+    .gform_fields {
+      display: flex;
+      flex-direction: row;
+      gap: var(--s-sm);
+
+      .gfield {
+        flex: 1;
+        align-items: flex-start !important;
+
+        input,
+        .gform-button.button {
+          width: 100%;
+          border-radius: 3rem;
+          background: rgba(white, 0.25);
+          color: var(--c-wit);
+          border: none;
+          height: 54px;
+          padding: var(--s-2sm) var(--s-2md);
+        }
+        .gform-button.button {
+          background: var(--c-blauw);
+          font-weight: 700;
+        }
+      }
+
+      @include bp.mobile {
+        flex-direction: column;
+      }
+    }
+    .gform-footer {
+      display: none;
+    }
+  }
+}
