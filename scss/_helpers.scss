@@ -1,0 +1,133 @@
+/* Decorative */
+.rounded {
+  border-radius: 999rem !important;
+}
+
+.clipped {
+  overflow: hidden;
+}
+
+/* PADDING */
+.p-xs {
+  padding: var(--s-xs) !important;
+}
+.p-sm {
+  padding: var(--s-xs) !important;
+}
+.p-md {
+  padding: var(--s-md) !important;
+}
+.p-lg {
+  padding: var(--s-lg) !important;
+}
+.p-xl {
+  padding: var(--s-xl) !important;
+}
+.p-2xl {
+  padding: var(--s-2xl) !important;
+}
+
+/* BORDER RADIUS */
+.br-xs {
+  border-radius: var(--br-xs) !important;
+}
+.br-sm {
+  border-radius: var(--br-sm) !important;
+}
+.br-md {
+  border-radius: var(--br-md) !important;
+}
+.br-lg {
+  border-radius: var(--br-lg) !important;
+}
+.br-xl {
+  border-radius: var(--br-xl) !important;
+}
+
+/* FLEX RATIOS */
+.flex-auto {
+  flex: auto !important;
+}
+.flex-none {
+  flex: none !important;
+}
+
+.flex-1 {
+  flex: 1 !important;
+}
+.flex-2 {
+  flex: 2 !important;
+}
+.flex-3 {
+  flex: 3 !important;
+}
+.flex-4 {
+  flex: 4 !important;
+}
+.flex-5 {
+  flex: 5 !important;
+}
+.flex-6 {
+  flex: 6 !important;
+}
+.flex-7 {
+  flex: 7 !important;
+}
+.flex-8 {
+  flex: 8 !important;
+}
+.flex-9 {
+  flex: 9 !important;
+}
+.flex-10 {
+  flex: 10 !important;
+}
+.flex-11 {
+  flex: 11 !important;
+}
+.flex-12 {
+  flex: 12 !important;
+}
+
+/* Opacity */
+.opacity-25 {
+  opacity: 0.25 !important;
+}
+.opacity-50 {
+  opacity: 0.5 !important;
+}
+.opacity-75 {
+  opacity: 0.75 !important;
+}
+
+/* Width */
+.elementor-element {
+  &.w-auto {
+    width: auto !important;
+  }
+  &.w-unset {
+    width: unset !important;
+  }
+  &.w-initial {
+    width: initial !important;
+  }
+}
+
+/* Height */
+.elementor-element {
+  &.h-screen {
+    height: 100vh !important;
+  }
+
+  &.max-h-50 {
+    max-height: 50rem !important;
+  }
+
+  &.max-h-55 {
+    max-height: 55rem !important;
+  }
+
+  &.max-h-60 {
+    max-height: 60rem !important;
+  }
+}

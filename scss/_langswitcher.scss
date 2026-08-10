@@ -1,0 +1,24 @@
+.lang-switch {
+  .wpml-ls-link {
+    opacity: 0.5;
+    padding: 0 var(--s-sm);
+
+    &[lang="nl"]:before {
+      content: "NL";
+    }
+    &[lang="en"]:before {
+      content: "EN";
+    }
+    &[aria-current="page"] {
+      opacity: 1;
+    }
+  }
+
+  .wpml-ls-native {
+    display: none;
+  }
+
+  ul > li:first-child {
+    border-right: solid 1px var(--c-wit);
+  }
+}

@@ -1,0 +1,11 @@
+.elementor-element.bubble {
+  padding: var(--s-lg);
+  padding-right: 7rem;
+
+  --path: url("../images/blauw-element-flipvh.svg");
+  -webkit-mask-image: var(--path);
+  mask-image: var(--path);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: top left;
+}

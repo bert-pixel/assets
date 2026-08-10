@@ -1,0 +1,17 @@
+/* Blauw element masking */
+.masked {
+  --path: url("../images/blauw-element.svg");
+  -webkit-mask-image: var(--path);
+  mask-image: var(--path);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: top left;
+
+  &.masked--flipv {
+    --path: url("../images/blauw-element-flipv.svg");
+  }
+
+  &.masked--fliph {
+    --path: url("../images/blauw-element-fliph.svg");
+  }
+}

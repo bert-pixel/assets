@@ -1,0 +1,26 @@
+/* Section */
+.elementor-element.section {
+  --section-padding-y: 7.5rem;
+  padding-inline: var(--s-md);
+  padding-block: var(--section-padding-y);
+
+  &.section--xl {
+    --section-padding-y: 10rem;
+  }
+
+  &.section--breadcrumbs {
+    padding-top: 2rem;
+  }
+
+  &.section--iconlist {
+    overflow: hidden;
+  }
+
+  @media (max-width: 767px) {
+    --section-padding-y: 3rem;
+
+    &.section--intro {
+      padding-inline: var(--s-xl);
+    }
+  }
+}

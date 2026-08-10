@@ -1,0 +1,29 @@
+/* Swiper */
+.section:has(.swiper-full) {
+  overflow: hidden;
+}
+.swiper-full {
+  max-width: 100vw;
+
+  .swiper {
+    overflow: visible;
+  }
+}
+
+.elementor-swiper-button {
+  background: var(--c-aubergine);
+  width: var(--button-icon-size);
+  font-size: var(--button-icon-font-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+
+  &.elementor-swiper-button-prev:before {
+    content: "<";
+  }
+  &.elementor-swiper-button-next:before {
+    content: ">";
+  }
+}

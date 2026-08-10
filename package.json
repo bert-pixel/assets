@@ -1,0 +1,18 @@
+{
+  "name": "watch-sftp",
+  "version": "1.0.0",
+  "description": "Watch a folder, auto-upload changed files over SFTP, bundle SCSS into bundle.css on every change.",
+  "main": "watch.js",
+  "scripts": {
+    "start": "node watch.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "dotenv": "^17.4.2",
+    "sass": "^1.102.0",
+    "ssh2-sftp-client": "^12.1.1"
+  }
+}

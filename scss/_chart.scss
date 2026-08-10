@@ -1,0 +1,57 @@
+.elementor-element.chart {
+  .chart__heading {
+    width: unset;
+    flex: 1;
+  }
+
+  .chart__image {
+    width: unset;
+    flex: 2;
+  }
+
+  @media (max-width: 767px) {
+    .e-con-inner {
+      flex-direction: column !important;
+    }
+  }
+
+  .chart__details {
+    bottom: 7.5rem;
+    position: absolute;
+    width: auto;
+    flex-direction: column-reverse;
+    max-width: 32rem;
+
+    .chart__text {
+      padding: var(--s-lg);
+      padding-right: 7rem;
+
+      --path: url("../images/blauw-element-flipvh.svg");
+      -webkit-mask-image: var(--path);
+      mask-image: var(--path);
+      mask-repeat: no-repeat;
+      mask-size: cover;
+      mask-position: top left;
+    }
+
+    .elementor-widget-image {
+      flex: none;
+      align-self: flex-start;
+    }
+
+    @media (max-width: 767px) {
+      position: static;
+      max-width: initial;
+      flex-direction: column;
+
+      .elementor-widget-image {
+        align-self: center;
+      }
+
+      .chart__text {
+        padding-right: var(--s-lg);
+        --path: none;
+      }
+    }
+  }
+}

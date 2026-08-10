@@ -1,0 +1,70 @@
+/* Buttons */
+.elementor-element.elementor-widget-button {
+  .elementor-button {
+    font-weight: 600;
+  }
+
+  &.elementor-button-info .elementor-button {
+    background-color: var(--c-wit);
+    color: var(--c-aubergine);
+
+    &:hover {
+      background-color: var(--c-blauw);
+      color: var(--c-wit);
+    }
+  }
+  &.elementor-button-success .elementor-button {
+    background-color: var(--c-licht-blauw-1);
+    color: var(--c-aubergine);
+  }
+  &.elementor-button-warning .elementor-button {
+    background-color: var(--c-negatief-1);
+    color: var(--c-aubergine);
+  }
+  &.elementor-button-danger .elementor-button {
+    background-color: var(--c-negatief-2);
+    color: var(--c-wit);
+  }
+
+  &.straight .elementor-button {
+    border-radius: 0;
+  }
+
+  &.outline .elementor-button {
+    border-radius: 0;
+    padding: var(--s-md) var(--s-lg);
+    --color: var(--c-aubergine);
+
+    background: transparent;
+    border: solid 1px var(--color);
+    color: var(--color);
+  }
+
+  &.btn--white .elementor-button {
+    --color: var(--c-wit);
+    border-color: var(--color);
+    color: var(--color);
+  }
+
+  &.btn--chevron .elementor-button .elementor-button-text {
+    display: inline-flex;
+    gap: 0.5rem;
+    font-weight: 600;
+
+    &:after {
+      content: ">";
+      font-size: var(--fs-button-m);
+      font-weight: 600;
+    }
+  }
+}
+
+.elementor-element.button-icon .elementor-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--button-icon-size) !important;
+  padding: 0;
+  aspect-ratio: 1;
+  font-size: var(--button-icon-font-size);
+}

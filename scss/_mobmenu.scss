@@ -1,0 +1,67 @@
+/* Mobmenu */
+
+.elementor-element.mobmenu {
+  .mobmenu__header {
+    .btn--close .elementor-button {
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0;
+
+      --path: url("../images/blauw-element-cta.svg");
+      -webkit-mask-image: var(--path);
+      mask-image: var(--path);
+      mask-repeat: no-repeat;
+      mask-size: cover;
+      mask-position: bottom left;
+    }
+  }
+
+  .mobmenu__nav {
+    margin-bottom: 2.5rem;
+
+    .nav__item {
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .nav__subnav {
+      padding: var(--s-xs) var(--s-2sm);
+    }
+
+    /* Accordion items hidden initially */
+    .js-nav:not(.open),
+    .js-back {
+      display: none;
+    }
+
+    &:has(.js-nav.open) .nav__item {
+      border-width: 0;
+    }
+
+    &:has(.js-nav.open) .js-back {
+      display: flex;
+    }
+
+    /* Hide all non-open nav items */
+    &:has(.js-nav.open) .nav__item:not(:has(.js-nav.open)) {
+      display: none;
+    }
+  }
+
+  .nav__card {
+    .btn--link .elementor-button {
+      padding: var(--s-md) 0;
+      font-weight: 500;
+      background: none;
+    }
+  }
+}
+
+/* Elementor */
+body.elementor-editor-active .elementor-element.mobmenu {
+  .js-nav {
+    display: flex !important;
+  }
+}

@@ -1,0 +1,172 @@
+/* Navbar hero color switching */
+body:has(.hero--aubergine) {
+  --c-navbar: var(--c-aubergine);
+  --c-navbar-text: var(--c-wit);
+}
+body:has(.hero--lightblue) {
+  --c-navbar: var(--c-wit);
+  --c-navbar-text: var(--c-aubergine);
+
+  .elementor-element.e-con.nav .nav__navbar .logo--wit {
+    display: none;
+  }
+  .elementor-element.e-con.nav .nav__navbar .logo--blauw {
+    display: block;
+  }
+}
+body:has(.hero--lightblue2) {
+  --c-navbar: var(--c-licht-blauw-2);
+  --c-navbar-text: var(--c-aubergine);
+  --c-navbar-btn: var(--c-blauw);
+  --c-navbar-btn-text: var(--c-wit);
+
+  .elementor-element.e-con.nav .nav__navbar .logo--wit {
+    display: none;
+  }
+  .elementor-element.e-con.nav .nav__navbar .logo--blauw {
+    display: block;
+  }
+
+  /* Update lang switch color */
+  .lang-switch {
+    ul > li:first-child {
+      border-color: var(--c-aubergine);
+    }
+    .wpml-ls-link {
+      color: var(--c-aubergine) !important;
+    }
+  }
+}
+body:has(.hero--photo) {
+  --c-navbar: transparent;
+}
+
+/* Navbar */
+.elementor-element.e-con.nav {
+  background: var(--c-navbar);
+  color: var(--c-navbar-text);
+  height: 3.75rem; /* 60px */
+
+  &.nav--mobile {
+    height: initial;
+  }
+
+  .nav__navbar {
+    max-width: var(--w-container-full);
+    margin: 0 auto;
+  }
+
+  @media (max-width: 1024px) {
+    .nav__menu {
+      display: none !important;
+    }
+  }
+
+  .nav__brand {
+    width: auto;
+    flex: none;
+    padding-left: var(--s-2md);
+
+    /* Default logo color */
+    .logo--wit {
+      display: block;
+    }
+    .logo--blauw {
+      display: none;
+    }
+
+    @media (max-width: 767px) {
+      padding-left: 0.75rem;
+    }
+  }
+
+  /* Elementor menu desktop */
+  .e-n-menu-title .e-n-menu-title-text {
+    color: var(--c-navbar-text) !important;
+  }
+
+  &:has(.e-active) {
+    .e-n-menu-title .e-n-menu-title-text {
+      opacity: 0.5;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: 3.75rem;
+      background: rgba(0 0 0 / 0.25);
+      backdrop-filter: blur(5px);
+    }
+  }
+
+  .e-n-menu-item:has(.e-active) {
+    .e-n-menu-title .e-n-menu-title-text {
+      font-weight: 600;
+      opacity: 1;
+    }
+  }
+
+  .e-n-menu-content > .e-child {
+    background: var(--c-navbar);
+  }
+
+  .nav__subnav {
+    max-width: var(--w-container-full);
+    margin: 0 auto;
+    padding: var(--s-lg);
+    gap: var(--s-sm);
+  }
+
+  .nav__card {
+    --c-card: var(--c-wit);
+    --c-title: var(--c-blauw);
+    --c-tag: var(--c-aubergine);
+
+    background: var(--c-card);
+    border-radius: var(--br-md);
+    padding: var(--s-2md);
+    gap: var(--s-md);
+
+    .card__title {
+      .elementor-heading-title {
+        color: var(--c-title);
+        font-size: var(--fs-title-xs);
+        line-height: var(--lh-title-xs);
+      }
+    }
+
+    .card__tag {
+      color: var(--c-tag);
+      opacity: 0.5;
+
+      font-size: var(--fs-tag-s);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      --c-card: var(--c-licht-blauw-1);
+      --c-title: var(--c-aubergine);
+    }
+  }
+
+  .nav__cta {
+    .elementor-widget-button .elementor-button {
+      background: var(--c-navbar-btn);
+      color: var(--c-navbar-btn-text);
+      border-radius: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+
+      --path: url("../images/blauw-element-cta.svg");
+      -webkit-mask-image: var(--path);
+      mask-image: var(--path);
+      mask-repeat: no-repeat;
+      mask-size: cover;
+      mask-position: bottom left;
+    }
+  }
+}

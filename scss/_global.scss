@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  /* sizing */
+  --s-2xs: 0.125rem; /* 2px */
+  --s-xs: 0.25rem; /* 4px */
+  --s-sm: 0.5rem; /* 8px */
+  --s-2sm: 0.75rem; /* 12px */
+  --s-md: 1rem; /* 16px */
+  --s-2md: 1.5rem; /* 24px */
+  --s-lg: 2rem; /* 32px */
+  --s-xl: 3rem; /* 48px */
+  --s-2xl: 4rem; /* 64px */
+
+  /* Font sizing */
+  --fs-title-2xs: 1.5rem; /* 24px */
+  --lh-title-2xs: 1.125rem; /* 18px */
+
+  --fs-title-xs: 2.5rem; /* 40px */
+  --lh-title-xs: 1.875rem; /* 30px */
+
+  --fs-title-s: 3.25rem; /* 52px */
+  --lh-title-s: 2.4375rem; /* 39px */
+
+  --fs-title-m: 4.5rem; /* 72px */
+  --lh-title-m: 3.375rem; /* 54px */
+
+  --fs-title-l: 6.25rem; /* 100px */
+  --lh-title-l: 4.6875rem; /* 75px */
+
+  --fs-title-xl: 7.5rem; /* 120px */
+  --lh-title-xl: 5.625rem; /* 90px */
+
+  --fs-title-2xl: 8.75rem; /* 140px */
+  --lh-title-2xl: 6.5625rem; /* 105px */
+
+  --fs-title-3xl: 11.25rem; /* 180px */
+  --lh-title-3xl: 8.4375rem; /* 135px */
+
+  --fs-body-s: 0.75rem;
+  --fs-body-m: 1.143rem;
+  --fs-body-l: 1rem;
+  --fs-body-xl: 1.375rem;
+  --fs-body-2xl: 2rem;
+
+  --fs-button-s: 0.75rem;
+  --fs-button-m: 1.143rem;
+  --fs-button-l: 1rem;
+
+  --fs-tag-s: 0.75rem;
+  --fs-tag-m: 1.143rem;
+  --fs-tag-l: 1rem;
+
+  /* Container sizing */
+  --w-container-md: 1118px;
+  --w-container-lg: 1280px;
+  --w-container-xl: 1344px;
+  --w-container-full: 1440px;
+
+  /* Button sizes */
+  --button-icon-size: 50px;
+  --button-icon-font-size: 1.875rem; /* 30px */
+
+  /* border radius */
+  --br-xs: 3px;
+  --br-sm: 5px;
+  --br-md: 10px;
+  --br-2md: 15px;
+  --br-lg: 20px;
+  --br-xl: 30px;
+
+  /* color theme */
+  --c-wit: var(--e-global-color-1cb513e);
+  --c-blauw: var(--e-global-color-primary);
+  --c-aubergine: var(--e-global-color-secondary);
+  --c-licht-blauw-1: var(--e-global-color-accent);
+  --c-licht-blauw-2: var(--e-global-color-ead5433);
+  --c-negatief-1: var(--e-global-color-f3442de);
+  --c-negatief-2: var(--e-global-color-81e792d);
+  --c-error: var(--e-global-color-496e774);
+  --c-positief-1: var(--e-global-color-9da6d36);
+  --c-positief-2: var(--e-global-color-8909b76);
+  --c-overlay: var(--e-global-color-1c0ad24);
+
+  /* functional colors */
+  --c-navbar: var(--c-blauw); /* default */
+  --c-navbar-text: var(--c-wit);
+
+  /* Curves */
+  --t-curve-out-lg: cubic-bezier(0.25, 1, 0.75, 1);
+}
+
+.elementor-element[disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}

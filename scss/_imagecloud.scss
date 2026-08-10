@@ -1,0 +1,20 @@
+.imgcloud {
+  .imgcloud__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .elementor-widget-image {
+      position: absolute;
+      border-radius: var(--br-md);
+      overflow: hidden;
+    }
+  }
+
+  .imgcloud__title {
+    position: relative;
+  }
+}

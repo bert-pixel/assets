@@ -1,0 +1,15 @@
+#breadcrumbs {
+  margin-bottom: 3rem;
+
+  a {
+    opacity: 0.5;
+  }
+  & > span {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .breadcrumb_last {
+    opacity: 0.75;
+  }
+}

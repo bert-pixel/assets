@@ -1,0 +1,140 @@
+/* Card with Footer */
+.elementor-element.e-con.card {
+  --card-min-height: unset;
+  --c-text: var(--c-aubergine);
+  --c-background: var(--c-licht-blauw-1);
+
+  &:hover {
+    --c-text: var(--c-wit);
+    --c-background: var(--c-aubergine);
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--s-lg);
+  min-height: var(--card-min-height);
+  border-radius: var(--br-md);
+  background: var(--c-background);
+  position: relative;
+
+  .elementor-heading-title,
+  .elementor-widget-text-editor {
+    color: var(--c-text);
+  }
+
+  footer {
+    gap: 0;
+
+    .elementor-button:not(.button-icon) {
+      width: 100%;
+
+      &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+
+      &:hover {
+        background: var(--c-wit);
+        color: var(--c-aubergine);
+        border-radius: 99rem;
+      }
+    }
+  }
+
+  &:has(.elementor-button):hover {
+    --text-background: var(--c-blauw);
+    --text-color: var(--c-wit);
+  }
+
+  &.card--tall {
+    --card-min-height: 28rem;
+  }
+
+  &.card--square {
+    --card-min-height: unset;
+    aspect-ratio: 1;
+  }
+
+  &.card--blue {
+    --c-background: var(--c-blauw);
+    --c-text: var(--c-wit);
+  }
+}
+
+/* Card with image */
+.elementor-element.e-con.card--image {
+  background: var(--c-aubergine);
+  flex-direction: row;
+  border-radius: var(--br-md);
+  overflow: hidden;
+
+  .card__content {
+    color: var(--c-white);
+    padding: var(--s-lg);
+    padding-right: 0;
+    flex: 1;
+  }
+
+  &.card--white {
+    background: var(--c-wit);
+
+    .elementor-heading-title,
+    .card__content {
+      color: var(--c-aubergine);
+    }
+
+    .tag .elementor-heading-title {
+      color: var(--c-blauw);
+    }
+  }
+
+  &.card--vertical {
+    flex-direction: column;
+
+    .card__content {
+      padding: var(--s-2md); /* 24px */
+    }
+
+    .image,
+    .image img {
+      width: 100%;
+    }
+    .image.masked {
+      margin-top: -4rem;
+      --path: url("../images/blauw-element-mob-fliph.svg");
+    }
+  }
+
+  .image img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: center right;
+    flex: 1;
+  }
+
+  /* Only placement, don't style */
+  .button-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: var(--s-lg);
+  }
+
+  /* Vertical card */
+  @media (max-width: 767px) {
+    .card__content {
+      padding: var(--s-2md); /* 24px */
+    }
+
+    .image,
+    .image img {
+      width: 100%;
+    }
+    .image.masked {
+      --path: url("../images/blauw-element-mob-fliph.svg");
+    }
+  }
+}

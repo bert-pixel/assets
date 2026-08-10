@@ -1,0 +1,113 @@
+.elementor-element.flipcards {
+  --t-duration: 0.6s;
+  --t-curve: var(--t-curve-out-lg);
+  --t: var(--t-duration) var(--t-curve);
+  --closed-width: 6.25rem;
+
+  border-radius: var(--br-md);
+  overflow: hidden;
+
+  .flipcard {
+    overflow: hidden;
+    padding: var(--s-lg);
+    width: var(--closed-width);
+    transition:
+      width var(--t),
+      height var(--t),
+      padding var(--t);
+
+    .flipcard__nav {
+      gap: var(--s-sm);
+    }
+
+    @media (max-width: 767px) {
+      width: auto;
+      --min-height: none !important;
+      height: 8rem;
+
+      .flipcard__content {
+        flex-direction: column;
+      }
+
+      .flipcard__nav {
+        justify-content: flex-start;
+
+        .elementor-button {
+          rotate: 90deg;
+        }
+      }
+    }
+
+    .flipcard__header--vertical {
+      color: var(--c-aubergine);
+      opacity: 0.25;
+      white-space: nowrap;
+      rotate: -90deg;
+      transform-origin: top left;
+      font-size: var(--fs-title-s);
+      position: absolute;
+      bottom: -1rem;
+      left: 1rem;
+      transition:
+        opacity var(--t),
+        translate var(--t);
+
+      br {
+        display: none;
+      }
+
+      @media (max-width: 767px) {
+        rotate: 0deg;
+        left: 2rem;
+        bottom: 2rem;
+        max-width: 15rem;
+        white-space: break-spaces;
+        font-size: var(--fs-title-xs);
+        line-height: var(--lh-title-xs);
+      }
+    }
+
+    & > .elementor-element {
+      opacity: 0;
+      min-width: 44rem;
+      transition: opacity var(--t);
+    }
+
+    &.open {
+      width: 100%;
+      padding: var(--s-2xl);
+
+      .elementor-heading-title {
+        opacity: 1;
+      }
+
+      .flipcard__header--vertical {
+        opacity: 0;
+        translate: calc(var(--closed-width) * -1);
+        pointer-events: none;
+      }
+
+      & > .elementor-element {
+        opacity: 1;
+      }
+
+      @media (max-width: 767px) {
+        height: auto;
+        gap: 2rem;
+        padding: var(--s-lg);
+
+        & > .elementor-element {
+          min-width: unset;
+          transition: opacity var(--t);
+        }
+
+        .elementor-heading-title {
+          max-width: 100%;
+          word-break: break-word;
+          font-size: var(--fs-title-m);
+          line-height: var(--lh-title-m);
+        }
+      }
+    }
+  }
+}

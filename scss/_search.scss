@@ -1,0 +1,35 @@
+.elementor-widget.elementor-widget-search.search {
+  &.search--compact {
+    width: 22rem;
+  }
+
+  .e-search-input {
+    border-radius: 99rem;
+  }
+
+  .e-search-submit {
+    display: none;
+  }
+}
+
+.filter {
+  width: 22rem;
+  position: relative;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+
+  &::before {
+    content: url("https://blauwdev.wpenginepowered.com/wp-content/uploads/2026/08/search-dark.svg");
+    position: absolute;
+    margin: 1.3rem;
+  }
+
+  .filter__input {
+    width: 100%;
+    text-indent: var(--s-xl);
+    border-radius: 99rem;
+    padding: var(--s-md) var(--s-2sm);
+  }
+}
