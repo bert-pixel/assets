@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 /* Hero */
 .elementor-element.hero {
   height: 100vh;
@@ -5,7 +7,7 @@
   max-height: 800px;
   padding-inline: var(--s-md);
 
-  @media (max-width: 767px) {
+  @include bp.mobile {
     max-height: unset;
     height: unset;
   }
@@ -72,12 +74,12 @@
     margin-top: -60px;
     padding-top: 84px;
 
-    @media (max-width: 767px) {
+    @include bp.mobile {
       background-image: none !important;
     }
   }
 
-  @media (max-width: 767px) {
+  @include bp.mobile {
     .image {
       display: none;
     }

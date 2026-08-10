@@ -1,0 +1,8 @@
+.elementor-element.list {
+  gap: 0;
+  &__item {
+    display: inline-flex;
+    padding-block: var(--s-md);
+    border-bottom: solid 1px var(--c-wit);
+  }
+}

@@ -1,8 +1,10 @@
+@use "breakpoints" as bp;
+
 .elementor-element.panel {
   border-radius: var(--br-lg);
   padding: var(--s-2xl);
 
-  @media (max-width: 767px) {
+  @include bp.mobile {
     padding: var(--s-lg);
   }
 }

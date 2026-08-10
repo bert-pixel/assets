@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 /* Card with Footer */
 .elementor-element.e-con.card {
   --card-min-height: unset;
@@ -69,12 +71,24 @@
   flex-direction: row;
   border-radius: var(--br-md);
   overflow: hidden;
+  min-height: 19rem;
+  gap: 0;
 
   .card__content {
     color: var(--c-white);
     padding: var(--s-lg);
     padding-right: 0;
-    flex: 1;
+    flex: 2;
+  }
+
+  .image {
+    flex: 3;
+  }
+
+  .image img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   &.card--white {
@@ -109,10 +123,8 @@
 
   .image img {
     height: 100%;
-    width: auto;
+    width: 100%;
     object-fit: cover;
-    object-position: center right;
-    flex: 1;
   }
 
   /* Only placement, don't style */
@@ -124,9 +136,15 @@
   }
 
   /* Vertical card */
-  @media (max-width: 767px) {
+  @include bp.mobile {
+    flex-direction: column;
+
     .card__content {
       padding: var(--s-2md); /* 24px */
+    }
+
+    .image {
+      margin-top: -4rem;
     }
 
     .image,

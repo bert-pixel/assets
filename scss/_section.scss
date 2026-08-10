@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 /* Section */
 .elementor-element.section {
   --section-padding-y: 7.5rem;
@@ -16,7 +18,7 @@
     overflow: hidden;
   }
 
-  @media (max-width: 767px) {
+  @include bp.mobile {
     --section-padding-y: 3rem;
 
     &.section--intro {

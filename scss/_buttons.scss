@@ -40,6 +40,10 @@
     color: var(--color);
   }
 
+  &.outline--rounded .elementor-button {
+    border-radius: 99rem;
+  }
+
   &.btn--white .elementor-button {
     --color: var(--c-wit);
     border-color: var(--color);

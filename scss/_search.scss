@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 .elementor-widget.elementor-widget-search.search {
   &.search--compact {
     width: 22rem;
@@ -16,7 +18,7 @@
   width: 22rem;
   position: relative;
 
-  @media (max-width: 767px) {
+  @include bp.mobile {
     width: 100%;
   }
 
@@ -31,5 +33,24 @@
     text-indent: var(--s-xl);
     border-radius: 99rem;
     padding: var(--s-md) var(--s-2sm);
+  }
+}
+
+.elementor-element.filter-buttons {
+  .e-filter-item {
+    padding: var(--s-md) var(--s-lg);
+    border-radius: 2rem;
+    // transition: none !important;
+
+    &[aria-pressed="true"] {
+      background: var(--c-blauw);
+      color: var(--c-wit);
+    }
+
+    &:hover {
+      background: var(--c-aubergine);
+      color: var(--c-wit) !important;
+      border-radius: 0;
+    }
   }
 }

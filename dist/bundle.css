@@ -292,6 +292,9 @@ body {
   border: solid 1px var(--color);
   color: var(--color);
 }
+.elementor-element.elementor-widget-button.outline--rounded .elementor-button {
+  border-radius: 99rem;
+}
 .elementor-element.elementor-widget-button.btn--white .elementor-button {
   --color: var(--c-wit);
   border-color: var(--color);
@@ -380,12 +383,22 @@ body {
   flex-direction: row;
   border-radius: var(--br-md);
   overflow: hidden;
+  min-height: 19rem;
+  gap: 0;
 }
 .elementor-element.e-con.card--image .card__content {
   color: var(--c-white);
   padding: var(--s-lg);
   padding-right: 0;
-  flex: 1;
+  flex: 2;
+}
+.elementor-element.e-con.card--image .image {
+  flex: 3;
+}
+.elementor-element.e-con.card--image .image img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .elementor-element.e-con.card--image.card--white {
   background: var(--c-wit);
@@ -413,10 +426,8 @@ body {
 }
 .elementor-element.e-con.card--image .image img {
   height: 100%;
-  width: auto;
+  width: 100%;
   object-fit: cover;
-  object-position: center right;
-  flex: 1;
 }
 .elementor-element.e-con.card--image {
   /* Only placement, don't style */
@@ -431,8 +442,14 @@ body {
   /* Vertical card */
 }
 @media (max-width: 767px) {
+  .elementor-element.e-con.card--image {
+    flex-direction: column;
+  }
   .elementor-element.e-con.card--image .card__content {
     padding: var(--s-2md); /* 24px */
+  }
+  .elementor-element.e-con.card--image .image {
+    margin-top: -4rem;
   }
   .elementor-element.e-con.card--image .image,
   .elementor-element.e-con.card--image .image img {
@@ -766,6 +783,12 @@ body {
   }
 }
 
+.elementor-element.elementor-widget-image > img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
 .imgcloud .imgcloud__content {
   position: relative;
   width: 100%;
@@ -894,6 +917,8 @@ body:has(.hero--lightblue2) .lang-switch .wpml-ls-link {
 
 body:has(.hero--photo) {
   --c-navbar: transparent;
+  --c-navbar-btn: var(--c-blauw);
+  --c-navbar-btn-text: var(--c-wit);
 }
 @media (max-width: 767px) {
   body:has(.hero--photo) {
@@ -1029,6 +1054,15 @@ body:has(.hero--photo) {
   border-right: solid 1px var(--c-wit);
 }
 
+.elementor-element.list {
+  gap: 0;
+}
+.elementor-element.list__item {
+  display: inline-flex;
+  padding-block: var(--s-md);
+  border-bottom: solid 1px var(--c-wit);
+}
+
 .elementor-element.panel {
   border-radius: var(--br-lg);
   padding: var(--s-2xl);
@@ -1092,6 +1126,20 @@ body:has(.hero--photo) {
   text-indent: var(--s-xl);
   border-radius: 99rem;
   padding: var(--s-md) var(--s-2sm);
+}
+
+.elementor-element.filter-buttons .e-filter-item {
+  padding: var(--s-md) var(--s-lg);
+  border-radius: 2rem;
+}
+.elementor-element.filter-buttons .e-filter-item[aria-pressed=true] {
+  background: var(--c-blauw);
+  color: var(--c-wit);
+}
+.elementor-element.filter-buttons .e-filter-item:hover {
+  background: var(--c-aubergine);
+  color: var(--c-wit) !important;
+  border-radius: 0;
 }
 
 /* Swiper */

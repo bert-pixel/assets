@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 /* Navbar hero color switching */
 body:has(.hero--aubergine) {
   --c-navbar: var(--c-aubergine);
@@ -39,8 +41,10 @@ body:has(.hero--lightblue2) {
 }
 body:has(.hero--photo) {
   --c-navbar: transparent;
+  --c-navbar-btn: var(--c-blauw);
+  --c-navbar-btn-text: var(--c-wit);
 
-  @media (max-width: 767px) {
+  @include bp.mobile {
     --c-navbar: var(--c-blauw);
     --c-navbar-btn: var(--c-licht-blauw-2);
     --c-navbar-btn-text: var(--c-aubergine);
@@ -62,7 +66,7 @@ body:has(.hero--photo) {
     margin: 0 auto;
   }
 
-  @media (max-width: 1024px) {
+  @include bp.tablet {
     .nav__menu {
       display: none !important;
     }
@@ -81,7 +85,7 @@ body:has(.hero--photo) {
       display: none;
     }
 
-    @media (max-width: 767px) {
+    @include bp.mobile {
       padding-left: 0.75rem;
     }
   }
