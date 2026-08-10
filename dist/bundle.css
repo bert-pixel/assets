@@ -1122,7 +1122,3 @@ body:has(.hero--photo) {
 .elementor-swiper-button.elementor-swiper-button-next:before {
   content: ">";
 }
-
-.elementor-heading-title {
-  color: yellow !important;
-}
