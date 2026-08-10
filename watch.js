@@ -1,42 +1,59 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const path = require('path');
-const fs = require('fs');
-const chokidar = require('chokidar');
-const SftpClient = require('ssh2-sftp-client');
-const sass = require('sass');
+const path = require("path");
+const fs = require("fs");
+const chokidar = require("chokidar");
+const SftpClient = require("ssh2-sftp-client");
+const sass = require("sass");
+const livereload = require("livereload");
 
 // ---------------------------------------------------------------------------
 // Config (read from .env — see .env.example)
 // ---------------------------------------------------------------------------
 const {
   SFTP_HOST,
-  SFTP_PORT = '22',
+  SFTP_PORT = "22",
   SFTP_USER,
   SFTP_PASSWORD,
-  REMOTE_DIR = '/', // only used to mirror non-scss files that live under WATCH_DIR
-  WATCH_DIR = './src',
+  REMOTE_DIR = "/", // only used to mirror non-scss files that live under WATCH_DIR
+  WATCH_DIR = "./src",
   SCSS_ENTRY,
   BUNDLE_LOCAL_PATH,
   BUNDLE_REMOTE_DIR, // fixed remote folder the compiled bundle is uploaded to
-  SCSS_STYLE = 'expanded', // 'expanded' | 'compressed'
-  INITIAL_SYNC = 'true',
-  IGNORE_PATTERNS = '', // comma-separated substrings to skip, e.g. ".map,drafts/"
+  SCSS_STYLE = "expanded", // 'expanded' | 'compressed'
+  INITIAL_SYNC = "true",
+  IGNORE_PATTERNS = "", // comma-separated substrings to skip, e.g. ".map,drafts/"
+  ENABLE_LIVERELOAD = "true",
+  LIVERELOAD_PORT = "35729",
 } = process.env;
 
-const required = { SFTP_HOST, SFTP_USER, SFTP_PASSWORD, SCSS_ENTRY, BUNDLE_LOCAL_PATH, BUNDLE_REMOTE_DIR };
+const required = {
+  SFTP_HOST,
+  SFTP_USER,
+  SFTP_PASSWORD,
+  SCSS_ENTRY,
+  BUNDLE_LOCAL_PATH,
+  BUNDLE_REMOTE_DIR,
+};
 for (const [key, val] of Object.entries(required)) {
   if (!val) {
-    console.error(`[config] Missing required .env value: ${key}. Copy .env.example to .env and fill it in.`);
+    console.error(
+      `[config] Missing required .env value: ${key}. Copy .env.example to .env and fill it in.`,
+    );
     process.exit(1);
   }
 }
 
 const watchDirAbs = path.resolve(WATCH_DIR);
 const bundleLocalAbs = path.resolve(BUNDLE_LOCAL_PATH);
-const bundleRemotePath = path.posix.join(BUNDLE_REMOTE_DIR, path.basename(bundleLocalAbs));
+const bundleRemotePath = path.posix.join(
+  BUNDLE_REMOTE_DIR,
+  path.basename(bundleLocalAbs),
+);
 const scssEntryAbs = path.resolve(SCSS_ENTRY);
-const extraIgnored = IGNORE_PATTERNS.split(',').map((s) => s.trim()).filter(Boolean);
+const extraIgnored = IGNORE_PATTERNS.split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
 
 if (!fs.existsSync(watchDirAbs)) {
   console.error(`[config] WATCH_DIR does not exist: ${watchDirAbs}`);
@@ -48,19 +65,41 @@ if (!fs.existsSync(scssEntryAbs)) {
 }
 
 // ---------------------------------------------------------------------------
-// SFTP connection (kept open, reconnected on demand)
+// LiveReload — notifies the LiveReload browser extension after each
+// successful upload so the remote page refreshes (or, for bundle.css,
+// hot-swaps the stylesheet without a full reload).
+// We create the server WITHOUT calling .watch() — refresh() is triggered
+// manually only once an SFTP upload actually succeeds, not on every local save.
 // ---------------------------------------------------------------------------
-const sftp = new SftpClient('watch-sftp');
+let lrServer = null;
+if (ENABLE_LIVERELOAD === "true") {
+  try {
+    lrServer = livereload.createServer({ port: Number(LIVERELOAD_PORT) });
+    console.log(
+      `[livereload] listening on ws://localhost:${LIVERELOAD_PORT} (enable the LiveReload extension on the remote page's tab)`,
+    );
+  } catch (err) {
+    console.warn(
+      `[livereload] failed to start (uploads will still work): ${err.message}`,
+    );
+  }
+}
+
+function notifyLiveReload(localAbsPath) {
+  if (lrServer) lrServer.refresh(localAbsPath);
+}
+
+const sftp = new SftpClient("watch-sftp");
 let connected = false;
 let connecting = null;
 
-sftp.on('close', () => {
+sftp.on("close", () => {
   connected = false;
-  console.warn('[sftp] connection closed');
+  console.warn("[sftp] connection closed");
 });
-sftp.on('error', (err) => {
+sftp.on("error", (err) => {
   connected = false;
-  console.error('[sftp] connection error:', err.message);
+  console.error("[sftp] connection error:", err.message);
 });
 
 async function ensureConnected() {
@@ -88,7 +127,10 @@ async function ensureConnected() {
 }
 
 function toRemotePath(localAbsPath) {
-  const rel = path.relative(watchDirAbs, localAbsPath).split(path.sep).join('/');
+  const rel = path
+    .relative(watchDirAbs, localAbsPath)
+    .split(path.sep)
+    .join("/");
   return path.posix.join(REMOTE_DIR, rel);
 }
 
@@ -98,7 +140,10 @@ async function uploadLocalFile(localAbsPath, remotePath) {
     await ensureConnected();
     await sftp.mkdir(remoteDir, true).catch(() => {}); // no-op if it already exists
     await sftp.put(localAbsPath, remotePath);
-    console.log(`[upload] ${path.relative(process.cwd(), localAbsPath)} -> ${remotePath}`);
+    console.log(
+      `[upload] ${path.relative(process.cwd(), localAbsPath)} -> ${remotePath}`,
+    );
+    notifyLiveReload(localAbsPath);
   } catch (err) {
     connected = false;
     console.error(`[upload] FAILED for ${localAbsPath}: ${err.message}`);
@@ -121,7 +166,9 @@ function buildScss() {
     const result = sass.compile(scssEntryAbs, { style: SCSS_STYLE });
     fs.mkdirSync(path.dirname(bundleLocalAbs), { recursive: true });
     fs.writeFileSync(bundleLocalAbs, result.css);
-    console.log(`[scss] compiled ${path.relative(process.cwd(), scssEntryAbs)} -> ${path.relative(process.cwd(), bundleLocalAbs)}`);
+    console.log(
+      `[scss] compiled ${path.relative(process.cwd(), scssEntryAbs)} -> ${path.relative(process.cwd(), bundleLocalAbs)}`,
+    );
     return true;
   } catch (err) {
     console.error(`[scss] compile error: ${err.message}`);
@@ -146,12 +193,12 @@ const rebuildAndUploadScss = debounce(async () => {
 // ---------------------------------------------------------------------------
 function isIgnored(fullPath) {
   const rel = path.relative(watchDirAbs, fullPath);
-  if (rel.startsWith('..')) return true; // outside watch dir
+  if (rel.startsWith("..")) return true; // outside watch dir
   const base = path.basename(fullPath);
-  if (base === '.DS_Store') return true;
+  if (base === ".DS_Store") return true;
   if (path.resolve(fullPath) === bundleLocalAbs) return true; // handled separately by scss build
   const parts = rel.split(path.sep);
-  if (parts.includes('node_modules') || parts.includes('.git')) return true;
+  if (parts.includes("node_modules") || parts.includes(".git")) return true;
   return extraIgnored.some((pattern) => rel.includes(pattern));
 }
 
@@ -173,17 +220,17 @@ function walkDir(dir, fileList = []) {
 }
 
 async function initialSync() {
-  console.log('[init] building scss bundle...');
+  console.log("[init] building scss bundle...");
   if (buildScss()) await uploadBundle();
 
-  console.log('[init] syncing existing files...');
+  console.log("[init] syncing existing files...");
   const files = walkDir(watchDirAbs);
   for (const f of files) {
     const ext = path.extname(f).toLowerCase();
-    if (ext === '.scss' || ext === '.sass') continue; // partials aren't uploaded directly
+    if (ext === ".scss" || ext === ".sass") continue; // partials aren't uploaded directly
     await uploadFile(f);
   }
-  console.log('[init] initial sync complete.');
+  console.log("[init] initial sync complete.");
 }
 
 // ---------------------------------------------------------------------------
@@ -191,11 +238,15 @@ async function initialSync() {
 // ---------------------------------------------------------------------------
 async function handleChange(filePath) {
   const ext = path.extname(filePath).toLowerCase();
-  if (ext === '.scss' || ext === '.sass') {
-    console.log(`[watch] scss changed: ${path.relative(watchDirAbs, filePath)}`);
+  if (ext === ".scss" || ext === ".sass") {
+    console.log(
+      `[watch] scss changed: ${path.relative(watchDirAbs, filePath)}`,
+    );
     rebuildAndUploadScss();
   } else {
-    console.log(`[watch] file changed: ${path.relative(watchDirAbs, filePath)}`);
+    console.log(
+      `[watch] file changed: ${path.relative(watchDirAbs, filePath)}`,
+    );
     await uploadFile(filePath);
   }
 }
@@ -203,7 +254,7 @@ async function handleChange(filePath) {
 async function main() {
   await ensureConnected();
 
-  if (INITIAL_SYNC === 'true') {
+  if (INITIAL_SYNC === "true") {
     await initialSync();
   }
 
@@ -212,20 +263,23 @@ async function main() {
     ignored: (filePath) => isIgnored(filePath),
   });
 
-  watcher.on('add', handleChange).on('change', handleChange);
+  watcher.on("add", handleChange).on("change", handleChange);
 
-  console.log(`[watch] watching ${watchDirAbs} for changes... (Ctrl+C to stop)`);
+  console.log(
+    `[watch] watching ${watchDirAbs} for changes... (Ctrl+C to stop)`,
+  );
 
   const shutdown = async () => {
-    console.log('\n[exit] closing sftp connection...');
+    console.log("\n[exit] closing sftp connection...");
     await sftp.end().catch(() => {});
+    if (lrServer) lrServer.close();
     process.exit(0);
   };
-  process.on('SIGINT', shutdown);
-  process.on('SIGTERM', shutdown);
+  process.on("SIGINT", shutdown);
+  process.on("SIGTERM", shutdown);
 }
 
 main().catch((err) => {
-  console.error('[fatal]', err.message);
+  console.error("[fatal]", err.message);
   process.exit(1);
 });

@@ -895,6 +895,13 @@ body:has(.hero--lightblue2) .lang-switch .wpml-ls-link {
 body:has(.hero--photo) {
   --c-navbar: transparent;
 }
+@media (max-width: 767px) {
+  body:has(.hero--photo) {
+    --c-navbar: var(--c-blauw);
+    --c-navbar-btn: var(--c-licht-blauw-2);
+    --c-navbar-btn-text: var(--c-aubergine);
+  }
+}
 
 /* Navbar */
 .elementor-element.e-con.nav {
@@ -1114,4 +1121,8 @@ body:has(.hero--photo) {
 }
 .elementor-swiper-button.elementor-swiper-button-next:before {
   content: ">";
+}
+
+.elementor-heading-title {
+  color: yellow !important;
 }
