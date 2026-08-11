@@ -6,22 +6,26 @@
   padding-inline: var(--s-md);
   padding-block: var(--section-padding-y);
 
-  &.section--xl {
+  &--compact {
+    padding-block: 0;
+  }
+
+  &--xl {
     --section-padding-y: 10rem;
   }
 
-  &.section--breadcrumbs {
+  &--breadcrumbs {
     padding-top: 2rem;
   }
 
-  &.section--iconlist {
+  &--iconlist {
     overflow: hidden;
   }
 
   @include bp.mobile {
     --section-padding-y: 3rem;
 
-    &.section--intro {
+    &--intro {
       padding-inline: var(--s-xl);
     }
   }

@@ -1,6 +1,6 @@
 @use "breakpoints" as bp;
 
-// FORMS
+// Newsletter form
 .elementor-element.newsletter {
   &__form {
     .gform_validation_errors {
@@ -49,6 +49,31 @@
   }
 }
 
+// Contact form
+.elementor-element.contactform {
+  .gform_fields {
+    gap: 1rem;
+  }
+  .gfield {
+    input,
+    select,
+    textarea {
+      background: var(--c-input);
+      border: none;
+      border-radius: 0;
+      padding: var(--s-2sm) var(--s-2md);
+      height: auto;
+    }
+  }
+
+  .gform_button.button {
+    background: var(--c-blauw) !important;
+    border-radius: 2rem !important;
+    padding: var(--s-md) var(--s-2md) !important;
+  }
+}
+
+// Job application form
 .elementor-element.applyform {
   .gform_required_legend,
   .gf_progressbar_title {

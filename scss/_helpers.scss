@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 /* Decorative */
 .rounded {
   border-radius: 999rem !important;
@@ -5,6 +7,14 @@
 
 .clipped {
   overflow: hidden;
+}
+
+.mobile-hide-br {
+  @include bp.mobile {
+    br {
+      display: none;
+    }
+  }
 }
 
 /* PADDING */

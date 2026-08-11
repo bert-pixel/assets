@@ -34,6 +34,28 @@
     border-radius: 99rem;
     padding: var(--s-md) var(--s-2sm);
   }
+
+  .filter__clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5rem;
+    background: color-mix(in srgb, var(--c-aubergine) 10%, transparent);
+    border: none;
+    color: var(--c-aubergine);
+    rotate: 45deg;
+    aspect-ratio: 1/1;
+    border-radius: 999rem;
+    font-size: 2rem;
+    padding: 0.8rem;
+    line-height: 0;
+    display: none;
+
+    &:hover {
+      color: var(--c-wit);
+      border-radius: 999rem !important;
+    }
+  }
 }
 
 .elementor-element.filter-buttons {

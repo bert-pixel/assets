@@ -72,3 +72,39 @@
   aspect-ratio: 1;
   font-size: var(--button-icon-font-size);
 }
+
+// Custom buttons
+.elementor-element.btn {
+  padding: var(--s-2md) var(--s-lg);
+  font-weight: 600;
+
+  &.rounded {
+    border-radius: 2rem !important;
+  }
+
+  &--blauw {
+    background: var(--c-blauw);
+    color: var(--c-wit);
+
+    &:hover {
+      background: var(--c-aubergine);
+      border-radius: 2rem;
+    }
+  }
+
+  &--lichtblauw {
+    background: var(--c-licht-blauw-1);
+    color: var(--c-aubergine);
+
+    &:hover {
+      background: var(--c-aubergine);
+      color: var(--c-wit);
+      border-radius: 0 !important;
+    }
+  }
+
+  span {
+    opacity: 0.5;
+    margin-right: 0.75rem;
+  }
+}

@@ -92,6 +92,12 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 767px) {
+  .mobile-hide-br br {
+    display: none;
+  }
+}
+
 /* PADDING */
 .p-xs {
   padding: var(--s-xs) !important;
@@ -325,6 +331,35 @@ body {
   padding: 0;
   aspect-ratio: 1;
   font-size: var(--button-icon-font-size);
+}
+
+.elementor-element.btn {
+  padding: var(--s-2md) var(--s-lg);
+  font-weight: 600;
+}
+.elementor-element.btn.rounded {
+  border-radius: 2rem !important;
+}
+.elementor-element.btn--blauw {
+  background: var(--c-blauw);
+  color: var(--c-wit);
+}
+.elementor-element.btn--blauw:hover {
+  background: var(--c-aubergine);
+  border-radius: 2rem;
+}
+.elementor-element.btn--lichtblauw {
+  background: var(--c-licht-blauw-1);
+  color: var(--c-aubergine);
+}
+.elementor-element.btn--lichtblauw:hover {
+  background: var(--c-aubergine);
+  color: var(--c-wit);
+  border-radius: 0 !important;
+}
+.elementor-element.btn span {
+  opacity: 0.5;
+  margin-right: 0.75rem;
 }
 
 /* Card with Footer */
@@ -768,6 +803,24 @@ body {
   display: none;
 }
 
+.elementor-element.contactform .gform_fields {
+  gap: 1rem;
+}
+.elementor-element.contactform .gfield input,
+.elementor-element.contactform .gfield select,
+.elementor-element.contactform .gfield textarea {
+  background: var(--c-input);
+  border: none;
+  border-radius: 0;
+  padding: var(--s-2sm) var(--s-2md);
+  height: auto;
+}
+.elementor-element.contactform .gform_button.button {
+  background: var(--c-blauw) !important;
+  border-radius: 2rem !important;
+  padding: var(--s-md) var(--s-2md) !important;
+}
+
 .elementor-element.applyform .gform_required_legend,
 .elementor-element.applyform .gf_progressbar_title {
   display: none;
@@ -1038,9 +1091,21 @@ body:has(.hero--lightblue2) .lang-switch .wpml-ls-link {
 }
 
 body:has(.hero--photo) {
-  --c-navbar: transparent;
-  --c-navbar-btn: var(--c-blauw);
-  --c-navbar-btn-text: var(--c-wit);
+  --c-navbar: color-mix(
+    in srgb,
+    var(--c-blauw) calc(min((var(--scroll) / 5) * 1%, 100%)),
+    transparent
+  );
+  --c-navbar-btn: color-mix(
+    in srgb,
+    var(--c-blauw),
+    var(--c-licht-blauw-2) calc(min((var(--scroll) / 5) * 1%, 100%))
+  );
+  --c-navbar-btn-text: color-mix(
+    in srgb,
+    var(--c-wit),
+    var(--c-aubergine) calc(min((var(--scroll) / 5) * 1%, 100%))
+  );
 }
 @media (max-width: 767px) {
   body:has(.hero--photo) {
@@ -1220,20 +1285,23 @@ body:has(.hero--photo) {
   padding-inline: var(--s-md);
   padding-block: var(--section-padding-y);
 }
-.elementor-element.section.section--xl {
+.elementor-element.section--compact {
+  padding-block: 0;
+}
+.elementor-element.section--xl {
   --section-padding-y: 10rem;
 }
-.elementor-element.section.section--breadcrumbs {
+.elementor-element.section--breadcrumbs {
   padding-top: 2rem;
 }
-.elementor-element.section.section--iconlist {
+.elementor-element.section--iconlist {
   overflow: hidden;
 }
 @media (max-width: 767px) {
   .elementor-element.section {
     --section-padding-y: 3rem;
   }
-  .elementor-element.section.section--intro {
+  .elementor-element.section--intro {
     padding-inline: var(--s-xl);
   }
 }
@@ -1267,6 +1335,26 @@ body:has(.hero--photo) {
   text-indent: var(--s-xl);
   border-radius: 99rem;
   padding: var(--s-md) var(--s-2sm);
+}
+.filter .filter__clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
+  background: color-mix(in srgb, var(--c-aubergine) 10%, transparent);
+  border: none;
+  color: var(--c-aubergine);
+  rotate: 45deg;
+  aspect-ratio: 1/1;
+  border-radius: 999rem;
+  font-size: 2rem;
+  padding: 0.8rem;
+  line-height: 0;
+  display: none;
+}
+.filter .filter__clear:hover {
+  color: var(--c-wit);
+  border-radius: 999rem !important;
 }
 
 .elementor-element.filter-buttons .e-filter-item {

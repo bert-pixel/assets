@@ -42,9 +42,21 @@ body:has(.hero--lightblue2) {
   }
 }
 body:has(.hero--photo) {
-  --c-navbar: transparent;
-  --c-navbar-btn: var(--c-blauw);
-  --c-navbar-btn-text: var(--c-wit);
+  --c-navbar: color-mix(
+    in srgb,
+    var(--c-blauw) calc(min((var(--scroll) / 5) * 1%, 100%)),
+    transparent
+  );
+  --c-navbar-btn: color-mix(
+    in srgb,
+    var(--c-blauw),
+    var(--c-licht-blauw-2) calc(min((var(--scroll) / 5) * 1%, 100%))
+  );
+  --c-navbar-btn-text: color-mix(
+    in srgb,
+    var(--c-wit),
+    var(--c-aubergine) calc(min((var(--scroll) / 5) * 1%, 100%))
+  );
 
   @include bp.mobile {
     --c-navbar: var(--c-blauw);
