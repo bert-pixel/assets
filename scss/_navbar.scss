@@ -4,6 +4,8 @@
 body:has(.hero--aubergine) {
   --c-navbar: var(--c-aubergine);
   --c-navbar-text: var(--c-wit);
+  --c-navbar-btn: var(--c-blauw);
+  --c-navbar-text: var(--c-wit);
 }
 body:has(.hero--lightblue) {
   --c-navbar: var(--c-wit);

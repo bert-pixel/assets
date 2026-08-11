@@ -722,6 +722,10 @@ body {
   }
 }
 
+.elementor-element.footer .elementor-nav-menu--main .elementor-nav-menu a {
+  padding: var(--s-sm) 0;
+}
+
 .elementor-element.newsletter__form .gform_validation_errors {
   display: none;
 }
@@ -935,6 +939,8 @@ body.elementor-editor-active .elementor-element.mobmenu .js-nav {
 body:has(.hero--aubergine) {
   --c-navbar: var(--c-aubergine);
   --c-navbar-text: var(--c-wit);
+  --c-navbar-btn: var(--c-blauw);
+  --c-navbar-text: var(--c-wit);
 }
 
 body:has(.hero--lightblue) {
@@ -1116,6 +1122,18 @@ body:has(.hero--photo) {
   display: inline-flex;
   padding-block: var(--s-md);
   border-bottom: solid 1px var(--c-wit);
+}
+
+.elementor-element.list-rowlink {
+  border-radius: 5rem;
+  --c-bg-hover: var(--c-blauw);
+  --c-color-hover: var(--c-wit);
+}
+.elementor-element.list-rowlink:hover {
+  background-color: var(--c-bg-hover) !important;
+}
+.elementor-element.list-rowlink:hover .elementor-widget-heading .elementor-heading-title {
+  color: var(--c-color-hover);
 }
 
 .elementor-element.panel {

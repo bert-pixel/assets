@@ -6,3 +6,17 @@
     border-bottom: solid 1px var(--c-wit);
   }
 }
+
+.elementor-element.list-rowlink {
+  border-radius: 5rem;
+  --c-bg-hover: var(--c-blauw);
+  --c-color-hover: var(--c-wit);
+
+  &:hover {
+    background-color: var(--c-bg-hover) !important;
+
+    .elementor-widget-heading .elementor-heading-title {
+      color: var(--c-color-hover);
+    }
+  }
+}
