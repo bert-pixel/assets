@@ -105,7 +105,7 @@
   }
 
   &.card--vertical {
-    flex-direction: column;
+    flex-direction: column !important;
 
     .card__content {
       padding: var(--s-2md); /* 24px */

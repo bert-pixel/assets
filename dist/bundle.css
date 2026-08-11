@@ -70,6 +70,7 @@ body {
   --c-positief-1: var(--e-global-color-9da6d36);
   --c-positief-2: var(--e-global-color-8909b76);
   --c-overlay: var(--e-global-color-1c0ad24);
+  --c-input: color-mix(in srgb, var(--c-aubergine) 5%, transparent);
   /* functional colors */
   --c-navbar: var(--c-blauw); /* default */
   --c-navbar-text: var(--c-wit);
@@ -416,7 +417,7 @@ body {
   color: var(--c-blauw);
 }
 .elementor-element.card--image.card--vertical {
-  flex-direction: column;
+  flex-direction: column !important;
 }
 .elementor-element.card--image.card--vertical .card__content {
   padding: var(--s-2md); /* 24px */
@@ -765,6 +766,66 @@ body {
 }
 .elementor-element.newsletter__form .gform-footer {
   display: none;
+}
+
+.elementor-element.applyform .gform_required_legend,
+.elementor-element.applyform .gf_progressbar_title {
+  display: none;
+}
+.elementor-element.applyform .gf_progressbar_wrapper {
+  position: absolute;
+  left: 0;
+  bottom: -2rem;
+  margin: 0;
+  width: 100%;
+  z-index: 999;
+  background: var(--c-licht-blauw-1);
+  border-radius: 0;
+}
+.elementor-element.applyform .gf_progressbar_wrapper .gf_progressbar {
+  background: none;
+}
+.elementor-element.applyform .gf_progressbar_wrapper .gf_progressbar_percentage {
+  background: var(--c-blauw);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.elementor-element.applyform .gform_fields,
+.elementor-element.applyform .gform-page-footer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 33.3333333333%;
+}
+.elementor-element.applyform .gfield {
+  flex: auto;
+  width: 33%;
+}
+.elementor-element.applyform .gfield input,
+.elementor-element.applyform .gfield select {
+  background: var(--c-input);
+  border: none;
+  border-radius: 0;
+  padding: var(--s-2sm) var(--s-2md);
+  height: auto;
+}
+.elementor-element.applyform .gform_next_button {
+  width: 100% !important;
+  background: var(--c-aubergine) !important;
+  border-radius: 2rem !important;
+  padding: var(--s-2sm) var(--s-2md) !important;
+}
+.elementor-element.applyform .ginput_container.ginput_container_date {
+  display: flex;
+}
+.elementor-element.applyform .ginput_container.ginput_container_date input {
+  flex: auto;
+  margin-right: -8px;
+}
+.elementor-element.applyform .gfield_html {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /* Hero */

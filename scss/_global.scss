@@ -86,6 +86,8 @@ body {
   --c-positief-2: var(--e-global-color-8909b76);
   --c-overlay: var(--e-global-color-1c0ad24);
 
+  --c-input: color-mix(in srgb, var(--c-aubergine) 5%, transparent);
+
   /* functional colors */
   --c-navbar: var(--c-blauw); /* default */
   --c-navbar-text: var(--c-wit);
