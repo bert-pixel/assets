@@ -1,15 +1,27 @@
 @use "breakpoints" as bp;
 
 /* Navbar hero color switching */
+
 body:has(.hero--aubergine) {
   --c-navbar: var(--c-aubergine);
   --c-navbar-text: var(--c-wit);
   --c-navbar-btn: var(--c-blauw);
+  --c-navbar-btn-text: var(--c-wit);
+}
+body:has(.search-main.open) {
+  --c-navbar: var(--c-aubergine);
   --c-navbar-text: var(--c-wit);
+  --c-navbar-btn: var(--c-licht-blauw-1);
+  --c-navbar-btn-text: var(--c-aubergine);
+}
+body:has(.search-main.open) .nav {
+  height: unset;
 }
 body:has(.hero--lightblue) {
   --c-navbar: var(--c-wit);
   --c-navbar-text: var(--c-aubergine);
+  --c-navbar-btn: var(--c-blauw);
+  --c-navbar-btn-text: var(--c-wit);
 
   .elementor-element.e-con.nav .nav__navbar .logo--wit {
     display: none;
@@ -65,11 +77,48 @@ body:has(.hero--photo) {
   }
 }
 
+// When menu is open, always blue
+body:has(.e-n-menu-content.e-active) {
+  --c-navbar: var(--c-blauw);
+  --c-navbar-text: var(--c-wit);
+  --c-navbar-btn: var(--c-licht-blauw-1);
+  --c-navbar-btn-text: var(--c-aubergine);
+
+  .elementor-element.e-con.nav .nav__navbar .logo--wit {
+    display: block;
+  }
+  .elementor-element.e-con.nav .nav__navbar .logo--blauw {
+    display: none;
+  }
+
+  /* Update lang switch color */
+  .lang-switch {
+    ul > li:first-child {
+      border-color: var(--c-wit);
+    }
+    .wpml-ls-link {
+      color: var(--c-wit) !important;
+    }
+  }
+}
+
+// Subnav
+.e-n-menu-content.e-active {
+  margin-top: 10px;
+}
+
+// Nav wrapper
+.elementor.elementor-location-header {
+  max-width: 100vw;
+  overflow: hidden;
+}
+
 /* Navbar */
 .elementor-element.e-con.nav {
   background: var(--c-navbar);
   color: var(--c-navbar-text);
-  height: 3.75rem; /* 60px */
+  padding-left: var(--s-md);
+  padding-right: 0;
 
   &.nav--mobile {
     height: initial;
@@ -86,10 +135,14 @@ body:has(.hero--photo) {
     }
   }
 
+  @include bp.mobile {
+    padding-left: 0;
+  }
+
   .nav__brand {
     width: auto;
     flex: none;
-    padding-left: var(--s-2md);
+    padding-left: 0;
 
     /* Default logo color */
     .logo--wit {
@@ -139,7 +192,8 @@ body:has(.hero--photo) {
   .nav__subnav {
     max-width: var(--w-container-full);
     margin: 0 auto;
-    padding: var(--s-lg);
+    padding-inline: var(--s-md);
+    padding-block: var(--s-lg);
     gap: var(--s-sm);
   }
 
@@ -168,15 +222,55 @@ body:has(.hero--photo) {
       font-size: var(--fs-tag-s);
       font-weight: 600;
       text-transform: uppercase;
+
+      &--opaque {
+        opacity: 1;
+      }
+    }
+
+    .card__items {
+      gap: 0.5rem;
+
+      &:has(.card__item:hover) .card__item {
+        opacity: 0.5;
+      }
+
+      .card__item:hover {
+        .elementor-heading-title {
+          font-weight: 600;
+        }
+        opacity: 1 !important;
+      }
+    }
+
+    .card__item {
+      transition: opacity 0.2s ease;
     }
 
     &:hover {
       --c-card: var(--c-licht-blauw-1);
       --c-title: var(--c-aubergine);
+
+      .card__tag--opaque .elementor-heading-title {
+        color: var(--c-aubergine);
+      }
     }
   }
 
   .nav__cta {
+    &:hover {
+      --c-navbar-btn: var(--c-navbar-btn-hover);
+      --c-navbar-btn-text: var(--c-navbar-btn-text-hover);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: calc(100% - 1px);
+      height: 100%;
+      width: 50vw;
+      background: var(--c-navbar-btn);
+      transition: inherit;
+    }
     .elementor-widget-button .elementor-button {
       background: var(--c-navbar-btn);
       color: var(--c-navbar-btn-text);

@@ -1,42 +1,10 @@
 @use "breakpoints" as bp;
 
 .elementor-element.faq {
-  .faq__header {
-    flex: 1;
-    padding-top: 1rem;
+  .e-n-accordion-item-title {
+    padding: var(--s-md) 0;
   }
-
-  .faq__items {
-    flex: 2;
-  }
-
-  .faq__item {
-    border-bottom: solid 1px var(--c-aubergine);
-
-    .elementor-widget-heading {
-      flex: auto;
-    }
-
-    .button-icon {
-      flex: none;
-      rotate: 90deg;
-    }
-
-    .elementor-widget-text-editor {
-      /*       max-height: 0; */
-      overflow: hidden;
-    }
-  }
-
-  @include bp.mobile {
-    flex-direction: row;
-
-    .faq__header {
-      flex: none;
-    }
-
-    .faq__items {
-      flex: auto;
-    }
+  .e-n-accordion-item {
+    border-bottom: solid 1px var(--c-border);
   }
 }

@@ -6,7 +6,27 @@
 }
 
 .clipped {
-  overflow: hidden;
+  overflow: hidden !important;
+}
+
+.relative {
+  position: relative !important;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+.tablet-hide-br {
+  @include bp.tablet {
+    br {
+      display: none;
+    }
+  }
 }
 
 .mobile-hide-br {
@@ -15,6 +35,11 @@
       display: none;
     }
   }
+}
+
+// Typography
+.break-word {
+  word-break: break-word;
 }
 
 /* PADDING */

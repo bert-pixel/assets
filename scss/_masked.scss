@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 /* Blauw element masking */
 .masked {
   --path: url("../images/blauw-element.svg");
@@ -13,5 +15,17 @@
 
   &.masked--fliph {
     --path: url("../images/blauw-element-fliph.svg");
+  }
+
+  &--tablet {
+    @include bp.tablet {
+      --path: url("../images/blauw-element-mob-compact.svg");
+    }
+  }
+
+  &--mobile {
+    @include bp.mobile {
+      --path: url("../images/blauw-element-mob-compact.svg");
+    }
   }
 }

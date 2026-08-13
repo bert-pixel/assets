@@ -1,5 +1,50 @@
 @use "breakpoints" as bp;
 
+// Main search
+.elementor-element.search-main {
+  display: none;
+
+  &.open {
+    display: flex;
+  }
+}
+
+// Mobile search
+.elementor-element.search-mobile {
+  .nav--mobile {
+    padding-inline: var(--s-md);
+  }
+  .e-search-input {
+    border-radius: 99rem;
+    border: none;
+    padding-left: 4rem;
+  }
+}
+
+.elementor-element.search-main,
+.elementor-element.search-mobile,
+.elementor-element {
+  .elementor-widget.elementor-widget-search {
+    .e-search-submit {
+      display: flex;
+      background: var(--c-aubergine);
+      border-radius: 99rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0;
+      margin: 15px;
+      width: 30px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+}
+
+// Search input
 .elementor-widget.elementor-widget-search.search {
   &.search--compact {
     width: 22rem;
@@ -14,6 +59,35 @@
   }
 }
 
+.elementor-widget.elementor-widget-search.search-filter {
+  .e-search-label {
+    position: absolute;
+    left: 50%;
+    top: 1.8rem;
+    margin-left: calc(-35rem / 2);
+  }
+  .e-search-input-wrapper {
+    width: 35rem;
+    flex: none;
+    margin: 0 auto;
+
+    @include bp.mobile {
+      width: auto;
+    }
+  }
+}
+
+// Search grid
+.elementor-element.search-grid {
+  &:has(.e-font-icon-svg:not(.hidden)) {
+    .filter-buttons,
+    .elementor-widget-loop-grid {
+      visibility: hidden;
+    }
+  }
+}
+
+// Filter search (People carousel)
 .filter {
   width: 22rem;
   position: relative;

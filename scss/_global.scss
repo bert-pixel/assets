@@ -23,14 +23,14 @@ body {
   --fs-title-xs: 2.5rem; /* 40px */
   --lh-title-xs: 1.875rem; /* 30px */
 
-  --fs-title-s: 3.25rem; /* 52px */
-  --lh-title-s: 2.4375rem; /* 39px */
+  --fs-title-sm: 3.25rem; /* 52px */
+  --lh-title-sm: 2.4375rem; /* 39px */
 
-  --fs-title-m: 4.5rem; /* 72px */
-  --lh-title-m: 3.375rem; /* 54px */
+  --fs-title-md: 4.5rem; /* 72px */
+  --lh-title-md: 3.375rem; /* 54px */
 
-  --fs-title-l: 6.25rem; /* 100px */
-  --lh-title-l: 4.6875rem; /* 75px */
+  --fs-title-lg: 6.25rem; /* 100px */
+  --lh-title-lg: 4.6875rem; /* 75px */
 
   --fs-title-xl: 7.5rem; /* 120px */
   --lh-title-xl: 5.625rem; /* 90px */
@@ -72,6 +72,7 @@ body {
   --br-2md: 15px;
   --br-lg: 20px;
   --br-xl: 30px;
+  --br-full: 99rem;
 
   /* color theme */
   --c-wit: var(--e-global-color-1cb513e);
@@ -87,10 +88,15 @@ body {
   --c-overlay: var(--e-global-color-1c0ad24);
 
   --c-input: color-mix(in srgb, var(--c-aubergine) 5%, transparent);
+  --c-border: color-mix(in srgb, var(--c-aubergine) 25%, transparent);
 
   /* functional colors */
   --c-navbar: var(--c-blauw); /* default */
   --c-navbar-text: var(--c-wit);
+  --c-navbar-btn: var(--c-licht-blauw-1);
+  --c-navbar-btn-text: var(--c-aubergine);
+  --c-navbar-btn-hover: var(--c-wit);
+  --c-navbar-btn-text-hover: var(--c-aubergine);
 
   /* Curves */
   --t-curve-out-lg: cubic-bezier(0.25, 1, 0.75, 1);

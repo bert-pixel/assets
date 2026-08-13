@@ -46,7 +46,7 @@
       white-space: nowrap;
       rotate: -90deg;
       transform-origin: top left;
-      font-size: var(--fs-title-s);
+      font-size: var(--fs-title-sm);
       position: absolute;
       bottom: -1rem;
       left: 1rem;
@@ -73,6 +73,10 @@
       opacity: 0;
       min-width: 44rem;
       transition: opacity var(--t);
+
+      @include bp.tablet {
+        min-width: 32rem;
+      }
     }
 
     &.open {
@@ -93,6 +97,13 @@
         opacity: 1;
       }
 
+      @include bp.tablet {
+        .elementor-heading-title {
+          font-size: var(--fs-title-lg);
+          line-height: var(--lh-title-lg);
+        }
+      }
+
       @include bp.mobile {
         height: auto;
         gap: 2rem;
@@ -106,8 +117,8 @@
         .elementor-heading-title {
           max-width: 100%;
           word-break: break-word;
-          font-size: var(--fs-title-m);
-          line-height: var(--lh-title-m);
+          font-size: var(--fs-title-md);
+          line-height: var(--lh-title-md);
         }
       }
     }

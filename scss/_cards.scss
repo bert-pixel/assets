@@ -8,7 +8,7 @@
 
   &:hover {
     --c-text: var(--c-wit);
-    --c-background: var(--c-aubergine);
+    --c-background: var(--c-blauw);
   }
 
   display: flex;
@@ -152,7 +152,7 @@
       width: 100%;
     }
     .image.masked {
-      --path: url("../images/blauw-element-mob-fliph.svg");
+      --path: url("../images/blauw-element-mob-compact-fliph.svg");
     }
   }
 }

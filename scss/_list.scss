@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 .elementor-element.list {
   gap: 0;
   &__item {
@@ -7,10 +9,46 @@
   }
 }
 
+.elementor-element.list--squares {
+  ul {
+    padding: var(--s-md);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    list-style: square;
+
+    > li {
+      &::marker {
+        content: url("../images/list-square.svg");
+      }
+      padding-left: 1rem;
+      padding-right: 2rem;
+    }
+  }
+}
+
 .elementor-element.list-rowlink {
-  border-radius: 5rem;
+  border-radius: var(--br-full);
   --c-bg-hover: var(--c-blauw);
   --c-color-hover: var(--c-wit);
+
+  .rounded {
+    width: 50px;
+    aspect-ratio: 1;
+  }
+
+  @include bp.mobile {
+    border-radius: var(--br-md);
+    padding: var(--s-sm) var(--s-2md);
+    padding-right: 5rem;
+
+    .btn-chevron {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: var(--s-2md);
+    }
+  }
 
   &:hover {
     background-color: var(--c-bg-hover) !important;

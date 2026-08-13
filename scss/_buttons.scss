@@ -38,10 +38,17 @@
     background: transparent;
     border: solid 1px var(--color);
     color: var(--color);
+
+    &:hover {
+      background: var(--c-aubergine);
+      color: var(--c-wit);
+      border-radius: 0;
+      border-color: var(--c-aubergine);
+    }
   }
 
   &.outline--rounded .elementor-button {
-    border-radius: 99rem;
+    border-radius: 4rem;
   }
 
   &.btn--white .elementor-button {
@@ -71,6 +78,11 @@
   padding: 0;
   aspect-ratio: 1;
   font-size: var(--button-icon-font-size);
+
+  &:hover,
+  &:focus {
+    border-radius: 99rem !important;
+  }
 }
 
 // Custom buttons

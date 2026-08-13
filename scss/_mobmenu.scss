@@ -1,7 +1,22 @@
 /* Mobmenu */
 
 .elementor-element.mobmenu {
+  --c-background: var(--c-blauw);
+  min-height: 100vh;
+
+  &:has(.search-mobile .open),
+  &:has(.search-mobile .open) .nav {
+    --c-background: var(--c-aubergine);
+    background: var(--c-background) !important;
+
+    .js-back .elementor-button {
+      background: transparent;
+      color: var(--c-licht-blauw-1);
+    }
+  }
   .mobmenu__header {
+    background: var(--c-background) !important;
+
     .btn--close .elementor-button {
       height: 60px;
       display: flex;
@@ -20,6 +35,7 @@
 
   .mobmenu__nav {
     margin-bottom: 2.5rem;
+    min-height: calc(100dvh - 360px);
 
     .nav__item {
       padding: 1rem 0;
@@ -27,7 +43,7 @@
     }
 
     .nav__subnav {
-      padding: var(--s-xs) var(--s-2sm);
+      padding: var(--s-xs) var(--s-2sm) !important;
     }
 
     /* Accordion items hidden initially */
@@ -51,17 +67,44 @@
   }
 
   .nav__card {
-    .btn--link .elementor-button {
-      padding: var(--s-md) 0;
-      font-weight: 500;
-      background: none;
+    .btn--accordion {
+      transition: rotate 0.2s ease;
     }
+    &:has(.js-nav.open) .btn--accordion {
+      rotate: -90deg;
+
+      .elementor-button {
+        background: var(--c-aubergine);
+        color: var(--c-wit);
+      }
+    }
+
+    .btn--link {
+      .elementor-button {
+        padding: var(--s-2sm) 0;
+        font-weight: 500;
+        background: none;
+
+        &:hover {
+          color: var(--c-aubergine);
+        }
+      }
+      &:last-child {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  // Search
+  .js-search-container:not(:has(.js-nav.open)) {
+    display: none;
   }
 }
 
-/* Elementor */
+/* Elementor Editor */
 body.elementor-editor-active .elementor-element.mobmenu {
-  .js-nav {
+  .js-nav,
+  .search-mobile {
     display: flex !important;
   }
 }

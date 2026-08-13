@@ -6,10 +6,17 @@
   padding-inline: var(--s-md);
   padding-block: var(--section-padding-y);
 
+  &.hero {
+    padding-top: var(--s-lg);
+  }
+
   &--compact {
     padding-block: 0;
   }
 
+  &--sm {
+    --section-padding-y: 5rem;
+  }
   &--xl {
     --section-padding-y: 10rem;
   }

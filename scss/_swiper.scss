@@ -27,3 +27,27 @@
     content: ">";
   }
 }
+
+.swiper--blue {
+  .elementor-swiper-button {
+    background: var(--c-wit);
+    color: var(--c-aubergine);
+  }
+}
+
+.swiper--clients {
+  .swiper-slide {
+    &:not(:has(img[alt="onze-klanten"])) {
+      background: var(--c-input);
+    }
+    border-radius: var(--br-md);
+    overflow: hidden;
+    padding: var(--s-md) var(--s-sm);
+    margin: 0 0.5rem;
+    width: 10rem !important;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
