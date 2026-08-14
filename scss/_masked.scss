@@ -2,12 +2,16 @@
 
 /* Blauw element masking */
 .masked {
-  --path: url("../images/blauw-element.svg");
+  --path: url("../images/blauw-element-md-bl.svg");
   -webkit-mask-image: var(--path);
   mask-image: var(--path);
   mask-repeat: no-repeat;
   mask-size: cover;
   mask-position: top left;
+
+  &.masked--xl {
+    --path: url("../images/blauw-element.svg");
+  }
 
   &.masked--flipv {
     --path: url("../images/blauw-element-flipv.svg");

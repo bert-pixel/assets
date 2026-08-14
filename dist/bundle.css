@@ -279,7 +279,7 @@ body {
   mask-position: top left;
 }
 .elementor-element.bubble--flipv {
-  --path: url("../images/blauw-element-fliph.svg");
+  --path: url("../images/blauw-element-md-br.svg");
   mask-position: bottom right;
 }
 
@@ -313,6 +313,10 @@ body {
   background-color: var(--c-licht-blauw-1);
   color: var(--c-aubergine);
 }
+.elementor-element.elementor-widget-button.elementor-button-success .elementor-button:hover {
+  background-color: var(--c-aubergine);
+  color: var(--c-wit);
+}
 .elementor-element.elementor-widget-button.elementor-button-warning .elementor-button {
   background-color: var(--c-negatief-1);
   color: var(--c-aubergine);
@@ -323,6 +327,9 @@ body {
 }
 .elementor-element.elementor-widget-button.straight .elementor-button {
   border-radius: 0;
+}
+.elementor-element.elementor-widget-button.straight--hover-rounded:hover .elementor-button {
+  border-radius: 2rem !important;
 }
 .elementor-element.elementor-widget-button.outline .elementor-button {
   border-radius: 0;
@@ -542,6 +549,9 @@ body {
   padding: var(--s-lg);
   border-radius: var(--br-md);
 }
+.elementor-element.card--simple:has(.button-icon):hover {
+  background-color: var(--c-aubergine) !important;
+}
 
 .elementor-element.card--square {
   aspect-ratio: 1/1;
@@ -626,7 +636,7 @@ body {
   width: calc(50% + 6rem);
   left: auto;
   right: 0;
-  --path: url("../images/blauw-element.svg");
+  --path: url("../images/blauw-element-md-bl.svg");
   -webkit-mask-image: var(--path);
   mask-image: var(--path);
   mask-repeat: no-repeat;
@@ -1004,12 +1014,15 @@ body {
 
 /* Blauw element masking */
 .masked {
-  --path: url("../images/blauw-element.svg");
+  --path: url("../images/blauw-element-md-bl.svg");
   -webkit-mask-image: var(--path);
   mask-image: var(--path);
   mask-repeat: no-repeat;
   mask-size: cover;
   mask-position: top left;
+}
+.masked.masked--xl {
+  --path: url("../images/blauw-element.svg");
 }
 .masked.masked--flipv {
   --path: url("../images/blauw-element-flipv.svg");
@@ -1498,11 +1511,29 @@ body:has(.e-n-menu-content.e-active) .lang-switch .wpml-ls-link {
   }
 }
 
+body:has(.search-main.open) {
+  overflow: hidden;
+}
+
 .elementor-element.search-main {
   display: none;
+  position: relative;
+  padding-inline: 1rem;
+  padding-bottom: 2rem;
+  border-bottom-left-radius: var(--br-2md);
+  border-bottom-right-radius: var(--br-2md);
 }
 .elementor-element.search-main.open {
   display: flex;
+}
+.elementor-element.search-main .search-main__overlay {
+  position: absolute;
+  left: -1rem;
+  width: calc(100% + 2rem);
+  top: 100%;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  z-index: -1;
 }
 
 .elementor-element.search-mobile .nav--mobile {

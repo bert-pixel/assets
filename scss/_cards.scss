@@ -161,6 +161,10 @@
 .elementor-element.card--simple {
   padding: var(--s-lg);
   border-radius: var(--br-md);
+
+  &:has(.button-icon):hover {
+    background-color: var(--c-aubergine) !important;
+  }
 }
 
 .elementor-element.card--square {

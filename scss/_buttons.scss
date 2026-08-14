@@ -16,6 +16,11 @@
   &.elementor-button-success .elementor-button {
     background-color: var(--c-licht-blauw-1);
     color: var(--c-aubergine);
+
+    &:hover {
+      background-color: var(--c-aubergine);
+      color: var(--c-wit);
+    }
   }
   &.elementor-button-warning .elementor-button {
     background-color: var(--c-negatief-1);
@@ -28,6 +33,10 @@
 
   &.straight .elementor-button {
     border-radius: 0;
+  }
+
+  &.straight--hover-rounded:hover .elementor-button {
+    border-radius: 2rem !important;
   }
 
   &.outline .elementor-button {
