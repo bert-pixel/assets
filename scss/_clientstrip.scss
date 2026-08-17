@@ -1,0 +1,14 @@
+.client-strip {
+  animation: marquee 20s linear infinite;
+  transition: background-position 0.2s ease;
+}
+
+@keyframes marquee {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: calc((-1744 - var(--scroll, 0) / 1.5) * 1px) 0;
+  }
+}

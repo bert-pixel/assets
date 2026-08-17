@@ -160,6 +160,7 @@ body:has(.e-n-menu-content.e-active) {
   /* Elementor menu desktop */
   .e-n-menu-title .e-n-menu-title-text {
     color: var(--c-navbar-text) !important;
+    cursor: pointer;
   }
 
   &:has(.e-active) {

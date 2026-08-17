@@ -406,6 +406,14 @@ body {
   margin-right: 0.75rem;
 }
 
+.elementor-element.btn--pill .elementor-button {
+  font-size: var(--fs-button-m);
+  padding: 0.75rem 1.25rem;
+}
+.elementor-element.btn--pill .elementor-button .elementor-button-text::after {
+  padding-left: 0.5rem;
+}
+
 /* Card with Footer */
 .elementor-element.card {
   --card-min-height: unset;
@@ -606,6 +614,19 @@ body {
   }
 }
 
+.client-strip {
+  animation: marquee 20s linear infinite;
+  transition: background-position 0.2s ease;
+}
+
+@keyframes marquee {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: calc((-1744 - var(--scroll, 0) / 1.5) * 1px) 0;
+  }
+}
 /* CTA Block */
 .elementor-element.ctablock {
   --bg: var(--c-blauw);
@@ -1287,6 +1308,7 @@ body:has(.e-n-menu-content.e-active) .lang-switch .wpml-ls-link {
 }
 .elementor-element.e-con.nav .e-n-menu-title .e-n-menu-title-text {
   color: var(--c-navbar-text) !important;
+  cursor: pointer;
 }
 .elementor-element.e-con.nav:has(.e-active) .e-n-menu-title .e-n-menu-title-text {
   opacity: 0.5;

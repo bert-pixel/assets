@@ -129,3 +129,17 @@
     margin-right: 0.75rem;
   }
 }
+
+// Pill button
+.elementor-element.btn--pill {
+  .elementor-button {
+    font-size: var(--fs-button-m);
+    padding: 0.75rem 1.25rem;
+
+    .elementor-button-text {
+      &::after {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+}
