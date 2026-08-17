@@ -124,3 +124,17 @@
     }
   }
 }
+
+// Elementor Editor
+body.elementor-editor-active .elementor-element.flipcards {
+  flex-wrap: wrap;
+
+  .flipcard {
+    width: auto !important;
+    height: auto !important;
+
+    & > .elementor-element {
+      opacity: 1;
+    }
+  }
+}
