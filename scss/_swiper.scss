@@ -19,6 +19,13 @@
   align-items: center;
   justify-content: center;
   font-weight: 600;
+  transition: outline-color 0.2s !important;
+  outline: solid 3px transparent;
+  outline-offset: -1px;
+
+  &:not(.swiper-button-disabled):hover {
+    outline-color: var(--c-aubergine);
+  }
 
   &.elementor-swiper-button-prev:before {
     content: "<";

@@ -306,6 +306,9 @@ body {
 .elementor-element.elementor-widget-button .elementor-button {
   font-weight: 600;
 }
+.elementor-element.elementor-widget-button:active {
+  filter: brightness(0.8) !important;
+}
 .elementor-element.elementor-widget-button.elementor-button-info .elementor-button {
   background-color: var(--c-wit);
   color: var(--c-aubergine);
@@ -347,11 +350,14 @@ body {
 .elementor-element.elementor-widget-button.outline .elementor-button:hover {
   background: var(--c-aubergine);
   color: var(--c-wit);
-  border-radius: 0;
+  border-radius: 2rem;
   border-color: var(--c-aubergine);
 }
 .elementor-element.elementor-widget-button.outline--rounded .elementor-button {
-  border-radius: 4rem;
+  border-radius: 2rem;
+}
+.elementor-element.elementor-widget-button.outline--rounded .elementor-button:hover {
+  border-radius: 0;
 }
 .elementor-element.elementor-widget-button.btn--white .elementor-button {
   --color: var(--c-wit);
@@ -1714,6 +1720,12 @@ body:has(.search-main.open) {
   align-items: center;
   justify-content: center;
   font-weight: 600;
+  transition: outline-color 0.2s !important;
+  outline: solid 3px transparent;
+  outline-offset: -1px;
+}
+.elementor-swiper-button:not(.swiper-button-disabled):hover {
+  outline-color: var(--c-aubergine);
 }
 .elementor-swiper-button.elementor-swiper-button-prev:before {
   content: "<";
