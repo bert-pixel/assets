@@ -21,6 +21,14 @@
   position: fixed !important;
 }
 
+.mobile-hide-br {
+  @include bp.mobile {
+    br {
+      display: none;
+    }
+  }
+}
+
 .tablet-hide-br {
   @include bp.tablet {
     br {
@@ -29,8 +37,8 @@
   }
 }
 
-.mobile-hide-br {
-  @include bp.mobile {
+.desktop-hide-br {
+  @include bp.desktop {
     br {
       display: none;
     }

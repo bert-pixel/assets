@@ -115,14 +115,20 @@ body {
   position: fixed !important;
 }
 
+@media (max-width: 767px) {
+  .mobile-hide-br br {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .tablet-hide-br br {
     display: none;
   }
 }
 
-@media (max-width: 767px) {
-  .mobile-hide-br br {
+@media (min-width: 1025px) {
+  .desktop-hide-br br {
     display: none;
   }
 }
