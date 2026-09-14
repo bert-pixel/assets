@@ -1,3 +1,5 @@
+@use "breakpoints" as bp;
+
 #breadcrumbs {
   margin-bottom: 3rem;
 
@@ -11,5 +13,9 @@
 
   .breadcrumb_last {
     opacity: 0.75;
+  }
+
+  @include bp.mobile {
+    margin-bottom: 1rem;
   }
 }

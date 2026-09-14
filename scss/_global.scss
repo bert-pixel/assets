@@ -115,3 +115,9 @@ body {
     hyphens: auto;
   }
 }
+
+// Blauw-Titel H1 and H2 should always be uppercase
+.elementor-element.elementor-widget-heading
+  :is(h1, h2):not(.card *, .card--simple *, .bubble *) {
+  text-transform: uppercase;
+}

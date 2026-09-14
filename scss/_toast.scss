@@ -1,0 +1,129 @@
+@use "breakpoints" as bp;
+
+.elementor-element.toast {
+  background: var(--c-aubergine);
+  position: absolute;
+  width: auto;
+  border-radius: var(--br-full);
+  margin-top: -1rem;
+  z-index: 10;
+  animation: fadeSlideIn 0.5s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+
+  &.hidden {
+    animation-delay: 0s;
+    animation: fadeSlideOut 0.5s ease-in-out forwards;
+  }
+
+  .elementor-heading-title {
+    color: var(--c-wit) !important;
+  }
+
+  .button--close .elementor-button {
+    background: none;
+    font-weight: 100;
+    font-size: 0.875rem;
+    color: var(--c-licht-blauw-1);
+
+    &:hover {
+      filter: brightness(2);
+    }
+  }
+
+  .btn--chevron .elementor-button {
+    background: none;
+    color: var(--c-licht-blauw-1);
+
+    &:hover {
+      filter: brightness(2);
+    }
+  }
+
+  @include bp.mobile {
+    position: relative;
+    gap: 0;
+    padding-right: 0.75rem;
+    width: 100vw;
+    max-width: calc(100vw - 1.5rem);
+    margin-bottom: -2rem;
+
+    .elementor-widget-heading {
+      flex: 1;
+      overflow: hidden;
+      width: auto;
+
+      &:before {
+        content: "";
+        position: absolute;
+        background: linear-gradient(
+          to right,
+          var(--c-aubergine),
+          transparent 5%,
+          transparent 95%,
+          var(--c-aubergine)
+        );
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .elementor-heading-title {
+        white-space: nowrap;
+        font-size: 0.75rem !important;
+        animation: swipeLeftRight 10s linear infinite;
+      }
+    }
+
+    .elementor-element.btn--chevron .elementor-button {
+      background: var(--c-wit);
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+
+      &:after {
+        content: ">";
+        color: var(--c-aubergine);
+      }
+      .elementor-button-content-wrapper {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    translate: 0 -150px;
+    opacity: 0;
+  }
+
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideOut {
+  from {
+    translate: 0 0;
+    opacity: 1;
+  }
+  to {
+    translate: 0 -50px;
+    opacity: 0;
+  }
+}
+
+@keyframes swipeLeftRight {
+  from {
+    translate: 120%;
+  }
+  to {
+    translate: -120%;
+  }
+}

@@ -21,6 +21,10 @@
   position: fixed !important;
 }
 
+.hide {
+  display: none !important;
+}
+
 .mobile-hide-br {
   @include bp.mobile {
     br {
