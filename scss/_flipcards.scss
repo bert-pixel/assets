@@ -12,6 +12,7 @@
   .flipcard {
     overflow: hidden;
     padding: var(--s-lg);
+    gap: var(--s-lg);
     width: var(--closed-width);
     transition:
       width var(--t),
@@ -48,11 +49,20 @@
       transform-origin: top left;
       font-size: var(--fs-title-sm);
       position: absolute;
-      bottom: -1rem;
-      left: 1rem;
+      cursor: pointer;
+      bottom: -3rem;
+      height: 5.25rem;
+      left: 0rem;
+      width: 99rem;
+      padding-top: 0.85rem;
+
       transition:
         opacity var(--t),
         translate var(--t);
+
+      &:hover {
+        opacity: 1;
+      }
 
       br {
         display: none;
@@ -71,11 +81,17 @@
 
     & > .elementor-element {
       opacity: 0;
-      min-width: 44rem;
+      min-width: 36rem;
       transition: opacity var(--t);
 
       @include bp.tablet {
         min-width: 32rem;
+      }
+    }
+
+    &:not(.open) {
+      .flipcard__text {
+        display: none;
       }
     }
 
@@ -135,6 +151,10 @@ body.elementor-editor-active .elementor-element.flipcards {
 
     & > .elementor-element {
       opacity: 1;
+    }
+
+    .flipcard__text {
+      display: block;
     }
   }
 }

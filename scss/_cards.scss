@@ -51,7 +51,7 @@
   }
 
   &.card--tall {
-    --card-min-height: 28rem;
+    --card-min-height: 28.75rem;
   }
 
   &.card--square {
@@ -79,6 +79,10 @@
     padding: var(--s-lg);
     padding-right: 0;
     flex: 2;
+
+    .elementor-element.elementor-widget-text-editor {
+      flex: auto;
+    }
   }
 
   .image {
@@ -106,6 +110,7 @@
 
   &.card--vertical {
     flex-direction: column !important;
+    flex: auto;
 
     .card__content {
       padding: var(--s-2md); /* 24px */
@@ -167,6 +172,32 @@
   }
 }
 
+// Square card
 .elementor-element.card--square {
-  aspect-ratio: 1/1;
+  --c-bg: var(--c-blauw);
+  aspect-ratio: 1;
+  overflow: hidden;
+  gap: 0.5rem;
+
+  .elementor-element.card__header {
+    flex: auto;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 1rem;
+      background: linear-gradient(to top, var(--c-bg), transparent);
+    }
+  }
+
+  &:hover .elementor-element.card__header::after {
+    --c-bg: var(--c-aubergine);
+  }
+
+  @include bp.mobile {
+    aspect-ratio: initial;
+  }
 }

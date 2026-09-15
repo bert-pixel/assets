@@ -1,4 +1,5 @@
-/* Swiper */
+@use "breakpoints" as bp;
+
 .section:has(.swiper-full) {
   overflow: hidden;
 }

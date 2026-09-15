@@ -123,6 +123,11 @@ body {
   display: none !important;
 }
 
+.disabled {
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+}
+
 @media (max-width: 767px) {
   .mobile-hide-br br {
     display: none;
@@ -489,7 +494,7 @@ body {
   --text-color: var(--c-wit);
 }
 .elementor-element.card.card--tall {
-  --card-min-height: 28rem;
+  --card-min-height: 28.75rem;
 }
 .elementor-element.card.card--square {
   --card-min-height: unset;
@@ -515,6 +520,9 @@ body {
   padding-right: 0;
   flex: 2;
 }
+.elementor-element.card--image .card__content .elementor-element.elementor-widget-text-editor {
+  flex: auto;
+}
 .elementor-element.card--image .image {
   flex: 3;
 }
@@ -535,6 +543,7 @@ body {
 }
 .elementor-element.card--image.card--vertical {
   flex-direction: column !important;
+  flex: auto;
 }
 .elementor-element.card--image.card--vertical .card__content {
   padding: var(--s-2md); /* 24px */
@@ -592,7 +601,30 @@ body {
 }
 
 .elementor-element.card--square {
-  aspect-ratio: 1/1;
+  --c-bg: var(--c-blauw);
+  aspect-ratio: 1;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+.elementor-element.card--square .elementor-element.card__header {
+  flex: auto;
+  overflow: hidden;
+}
+.elementor-element.card--square .elementor-element.card__header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1rem;
+  background: linear-gradient(to top, var(--c-bg), transparent);
+}
+.elementor-element.card--square:hover .elementor-element.card__header::after {
+  --c-bg: var(--c-aubergine);
+}
+@media (max-width: 767px) {
+  .elementor-element.card--square {
+    aspect-ratio: initial;
+  }
 }
 
 .elementor-element.chart .chart__heading {
@@ -744,6 +776,7 @@ body {
 .elementor-element.flipcards .flipcard {
   overflow: hidden;
   padding: var(--s-lg);
+  gap: var(--s-lg);
   width: var(--closed-width);
   transition: width var(--t), height var(--t), padding var(--t);
 }
@@ -774,9 +807,16 @@ body {
   transform-origin: top left;
   font-size: var(--fs-title-sm);
   position: absolute;
-  bottom: -1rem;
-  left: 1rem;
+  cursor: pointer;
+  bottom: -3rem;
+  height: 5.25rem;
+  left: 0rem;
+  width: 99rem;
+  padding-top: 0.85rem;
   transition: opacity var(--t), translate var(--t);
+}
+.elementor-element.flipcards .flipcard .flipcard__header--vertical:hover {
+  opacity: 1;
 }
 .elementor-element.flipcards .flipcard .flipcard__header--vertical br {
   display: none;
@@ -794,13 +834,16 @@ body {
 }
 .elementor-element.flipcards .flipcard > .elementor-element {
   opacity: 0;
-  min-width: 44rem;
+  min-width: 36rem;
   transition: opacity var(--t);
 }
 @media (max-width: 1024px) {
   .elementor-element.flipcards .flipcard > .elementor-element {
     min-width: 32rem;
   }
+}
+.elementor-element.flipcards .flipcard:not(.open) .flipcard__text {
+  display: none;
 }
 .elementor-element.flipcards .flipcard.open {
   width: 100%;
@@ -850,6 +893,9 @@ body.elementor-editor-active .elementor-element.flipcards .flipcard {
 }
 body.elementor-editor-active .elementor-element.flipcards .flipcard > .elementor-element {
   opacity: 1;
+}
+body.elementor-editor-active .elementor-element.flipcards .flipcard .flipcard__text {
+  display: block;
 }
 
 .elementor-element.footer .elementor-nav-menu--main .elementor-nav-menu a {
@@ -1735,7 +1781,6 @@ body:has(.search-main.open) {
   border-radius: 0;
 }
 
-/* Swiper */
 .section:has(.swiper-full) {
   overflow: hidden;
 }
