@@ -929,6 +929,8 @@ body.elementor-editor-active .elementor-element.flipcards .flipcard .flipcard__t
   border: none;
   height: 54px;
   padding: var(--s-2sm) var(--s-2md);
+  font-weight: bold;
+  --gf-ctrl-placeholder-color: var(--c-wit);
 }
 .elementor-element.newsletter__form .gform_fields .gfield .gform-button.button {
   background: var(--c-blauw);
@@ -1043,27 +1045,36 @@ body.elementor-editor-active .elementor-element.flipcards .flipcard .flipcard__t
   height: 800px;
   padding-inline: var(--s-md);
 }
-@media (max-width: 767px) {
-  .elementor-element.hero {
-    height: auto;
-    padding-bottom: var(--s-lg);
-  }
-}
 .elementor-element.hero .title {
-  flex: 1;
+  flex: 2;
   position: relative;
   z-index: 1;
 }
 .elementor-element.hero .image {
+  flex: 3;
   border-top-right-radius: var(--br-md);
   border-bottom-right-radius: var(--br-md);
-  flex: 2;
+  margin-left: -4rem;
 }
 .elementor-element.hero .image img {
   height: 680px;
   width: auto;
   object-fit: cover;
   object-position: center center;
+}
+@media (max-width: 1024px) {
+  .elementor-element.hero .title {
+    flex: 1;
+  }
+  .elementor-element.hero .image {
+    flex: 1;
+  }
+}
+@media (max-width: 767px) {
+  .elementor-element.hero {
+    height: auto;
+    padding-bottom: var(--s-lg);
+  }
 }
 .elementor-element.hero .breadcrumbs {
   max-width: var(--w-container-full);
@@ -1139,6 +1150,9 @@ body.elementor-editor-active .elementor-element.flipcards .flipcard .flipcard__t
 }
 .imgcloud .imgcloud__title {
   position: relative;
+}
+.imgcloud .imgcloud__title .elementor-heading-title {
+  white-space: nowrap;
 }
 
 /* Blauw element masking */
@@ -1312,6 +1326,12 @@ body:has(.hero--lightblue2) .lang-switch ul > li:first-child {
 }
 body:has(.hero--lightblue2) .lang-switch .wpml-ls-link {
   color: var(--c-aubergine) !important;
+}
+body:has(.hero--lightblue2) {
+  /* Update Ghost button */
+}
+body:has(.hero--lightblue2) .btn--ghost .elementor-button-text {
+  color: var(--c-aubergine);
 }
 
 body:has(.hero--photo) {
@@ -1644,6 +1664,27 @@ body:has(.e-n-menu-content.e-active) .lang-switch .wpml-ls-link {
 body:has(.search-main.open) {
   overflow: hidden;
 }
+body:has(.search-main.open) .elementor-element.e-con.nav .nav__navbar .logo--wit {
+  display: block;
+}
+body:has(.search-main.open) .elementor-element.e-con.nav .nav__navbar .logo--blauw {
+  display: none;
+}
+body:has(.search-main.open) {
+  /* Update lang switch color */
+}
+body:has(.search-main.open) .lang-switch ul > li:first-child {
+  border-color: var(--c-wit);
+}
+body:has(.search-main.open) .lang-switch .wpml-ls-link {
+  color: var(--c-wit) !important;
+}
+body:has(.search-main.open) {
+  /* Update Ghost button */
+}
+body:has(.search-main.open) .btn--ghost .elementor-button-text {
+  color: var(--c-wit) !important;
+}
 
 .elementor-element.search-main {
   display: none;
@@ -1833,6 +1874,47 @@ body:has(.search-main.open) {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.elementor-element.testimonials .elementor-widget-text-editor {
+  max-height: 14.8rem;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+.elementor-element.testimonials .elementor-widget-text-editor > p {
+  padding-right: 0.5rem;
+  margin-bottom: 0 !important;
+}
+@media (max-width: 767px) {
+  .elementor-element.testimonials .elementor-widget-text-editor {
+    font-size: 18px !important;
+  }
+}
+.elementor-element.testimonials .swiper-slide > .elementor-element {
+  --justify-content: space-between;
+}
+.elementor-element.testimonials .elementor-widget-heading {
+  max-width: calc(100% - 7rem) !important;
+}
+@media (max-width: 1024px) {
+  .elementor-element.testimonials .elementor-widget-heading {
+    max-width: none !important;
+  }
+}
+.elementor-element.testimonials .elementor-swiper-button {
+  top: calc(100% - 3rem) !important;
+}
+@media (max-width: 1024px) {
+  .elementor-element.testimonials .elementor-swiper-button {
+    top: -5rem !important;
+  }
+  .elementor-element.testimonials .elementor-swiper-button.elementor-swiper-button-prev {
+    left: 48px !important;
+  }
+  .elementor-element.testimonials .elementor-swiper-button.elementor-swiper-button-next {
+    left: 64px !important;
+  }
 }
 
 .elementor-element.toast {

@@ -52,6 +52,11 @@ body:has(.hero--lightblue2) {
       color: var(--c-aubergine) !important;
     }
   }
+
+  /* Update Ghost button */
+  .btn--ghost .elementor-button-text {
+    color: var(--c-aubergine);
+  }
 }
 body:has(.hero--photo) {
   --c-navbar: color-mix(

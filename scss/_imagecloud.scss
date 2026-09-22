@@ -16,5 +16,9 @@
 
   .imgcloud__title {
     position: relative;
+
+    .elementor-heading-title {
+      white-space: nowrap;
+    }
   }
 }

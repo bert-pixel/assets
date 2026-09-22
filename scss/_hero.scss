@@ -5,21 +5,17 @@
   height: 800px;
   padding-inline: var(--s-md);
 
-  @include bp.mobile {
-    height: auto;
-    padding-bottom: var(--s-lg);
-  }
-
   .title {
-    flex: 1;
+    flex: 2;
     position: relative;
     z-index: 1;
   }
 
   .image {
+    flex: 3;
     border-top-right-radius: var(--br-md);
     border-bottom-right-radius: var(--br-md);
-    flex: 2;
+    margin-left: -4rem;
 
     img {
       height: 680px;
@@ -27,6 +23,21 @@
       object-fit: cover;
       object-position: center center;
     }
+  }
+
+  @include bp.tablet {
+    .title {
+      flex: 1;
+    }
+
+    .image {
+      flex: 1;
+    }
+  }
+
+  @include bp.mobile {
+    height: auto;
+    padding-bottom: var(--s-lg);
   }
 
   .breadcrumbs {

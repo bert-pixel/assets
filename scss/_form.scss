@@ -32,6 +32,8 @@
           border: none;
           height: 54px;
           padding: var(--s-2sm) var(--s-2md);
+          font-weight: bold;
+          --gf-ctrl-placeholder-color: var(--c-wit);
         }
         .gform-button.button {
           background: var(--c-blauw);
