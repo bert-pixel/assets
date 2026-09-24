@@ -9,6 +9,51 @@
   }
 }
 
+.elementor-element.icon-list {
+  .icon-list__item {
+    padding: var(--s-lg) var(--s-xl);
+    border-radius: var(--br-md);
+    gap: 0;
+
+    @include bp.tablet {
+      flex-direction: column;
+      gap: var(--s-xl);
+      padding: var(--s-lg);
+
+      .list__icon {
+        width: 2rem;
+      }
+
+      .list__left,
+      .list__text {
+        width: 100%;
+      }
+    }
+  }
+
+  .list__left {
+    width: auto;
+    flex: 1;
+
+    @include bp.tablet {
+      gap: var(--s-lg);
+    }
+  }
+
+  .list__icon {
+    width: 3rem;
+  }
+
+  .list__title {
+    justify-content: center;
+  }
+
+  .list__text {
+    width: auto;
+    flex: 1;
+  }
+}
+
 .elementor-element.list--squares {
   ul {
     padding: var(--s-md);

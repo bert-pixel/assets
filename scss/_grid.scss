@@ -1,0 +1,33 @@
+.elementor-element.grid-cards {
+  .elementor-pagination {
+    margin-top: var(--s-lg);
+  }
+
+  .prev,
+  .next {
+    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-aubergine);
+    color: var(--c-wit);
+    border-radius: 99rem;
+    font-weight: 700;
+  }
+
+  .page-numbers:not(.prev, .next) {
+    opacity: 0.7;
+
+    &.current {
+      opacity: 1;
+      font-weight: 600;
+    }
+  }
+
+  span.prev,
+  span.next {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

@@ -29,6 +29,16 @@ body:has(.hero--lightblue) {
   .elementor-element.e-con.nav .nav__navbar .logo--blauw {
     display: block;
   }
+
+  /* Update lang switch color */
+  .lang-switch {
+    ul > li:first-child {
+      border-color: var(--c-aubergine);
+    }
+    .wpml-ls-link {
+      color: var(--c-aubergine) !important;
+    }
+  }
 }
 body:has(.hero--lightblue2) {
   --c-navbar: var(--c-licht-blauw-2);

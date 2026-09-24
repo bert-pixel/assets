@@ -67,7 +67,8 @@
 
 /* Card with image */
 .elementor-element.card--image {
-  background: var(--c-aubergine);
+  --c-bg: var(--c-aubergine);
+  background: var(--c-bg);
   flex-direction: row !important;
   border-radius: var(--br-md);
   overflow: hidden;
@@ -82,6 +83,19 @@
 
     .elementor-element.elementor-widget-text-editor {
       flex: auto;
+
+      max-height: 13rem;
+      overflow: hidden;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2rem;
+        background: linear-gradient(to top, var(--c-bg), transparent);
+        left: 0;
+        bottom: 0;
+      }
     }
   }
 
@@ -96,7 +110,7 @@
   }
 
   &.card--white {
-    background: var(--c-wit);
+    --c-bg: var(--c-wit);
 
     .elementor-heading-title,
     .card__content {
@@ -190,10 +204,11 @@
       width: 100%;
       height: 1rem;
       background: linear-gradient(to top, var(--c-bg), transparent);
+      transition: background 0.2s ease;
     }
   }
 
-  &:hover .elementor-element.card__header::after {
+  &:hover {
     --c-bg: var(--c-aubergine);
   }
 
