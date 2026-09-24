@@ -1591,17 +1591,36 @@ body:has(.e-n-menu-content.e-active) .lang-switch .wpml-ls-link {
   width: 50px;
   aspect-ratio: 1;
 }
+.elementor-element.list-rowlink__title {
+  flex: auto !important;
+  width: auto !important;
+}
+.elementor-element.list-rowlink__meta {
+  flex: none !important;
+  width: auto !important;
+  padding-inline: var(--s-md);
+  gap: 0;
+}
+.elementor-element.list-rowlink__meta > * {
+  width: 85px !important;
+}
 @media (max-width: 767px) {
   .elementor-element.list-rowlink {
     border-radius: var(--br-md);
     padding: var(--s-sm) var(--s-2md);
     padding-right: 5rem;
   }
+  .elementor-element.list-rowlink__meta {
+    padding: 0;
+  }
+  .elementor-element.list-rowlink__meta > * {
+    width: 75px !important;
+  }
   .elementor-element.list-rowlink .btn-chevron {
     position: absolute;
     right: 0;
     bottom: 0;
-    margin: var(--s-2md);
+    margin: var(--s-md);
   }
 }
 .elementor-element.list-rowlink:hover {

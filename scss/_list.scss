@@ -37,16 +37,40 @@
     aspect-ratio: 1;
   }
 
+  &__title {
+    flex: auto !important;
+    width: auto !important;
+  }
+
+  &__meta {
+    flex: none !important;
+    width: auto !important;
+    padding-inline: var(--s-md);
+    gap: 0;
+
+    & > * {
+      width: 85px !important;
+    }
+  }
+
   @include bp.mobile {
     border-radius: var(--br-md);
     padding: var(--s-sm) var(--s-2md);
     padding-right: 5rem;
 
+    &__meta {
+      padding: 0;
+
+      & > * {
+        width: 75px !important;
+      }
+    }
+
     .btn-chevron {
       position: absolute;
       right: 0;
       bottom: 0;
-      margin: var(--s-2md);
+      margin: var(--s-md);
     }
   }
 
