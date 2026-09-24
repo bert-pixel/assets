@@ -120,7 +120,7 @@ body:has(.e-n-menu-content.e-active) {
 
 /* Navbar */
 .elementor-element.e-con.nav {
-  background: var(--c-navbar);
+  background-color: var(--c-navbar) !important;
   color: var(--c-navbar-text);
   padding-left: var(--s-md);
   padding-right: 0;
